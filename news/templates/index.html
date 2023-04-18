@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>WNY News Aggregator</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="bg-primary p-5">
+        <div class="container text-white">
+            <h2 class="display-4 text-center">WNY News Headlines "{{ sunrise }}"</h2>
+            <br>
+            <p class="lead text-center">Keeping up with WNY & Southern Ontario</p>
+        </div>
+    </div>
+
+    <!-- Buffalo News -->
+    <div class="container d-block pt-5">
+       Buffalo News:
+        {% if buffalo_news %}
+            {% for value in buffalo_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <a href="https://buffalonews.com/{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Buffalo News Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+
+    <!-- Jamestown News -->
+    <div class="container d-block pt-5">
+      Jamestown:
+        {% if jamestown_news %}
+            {% for value in jamestown_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+
+    <!-- Niagara Falls News -->
+    <div class="container d-block pt-5">
+      Niagara Falls:
+        {% if ni_news %}
+            {% for value in ni_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+
+    <!-- WGRZ Channel 2 News -->
+    <div class="container d-block pt-5">
+      WGRZ Channel 2:
+        {% if wgrz_news %}
+            {% for value in wgrz_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-end p-5">
+        <small class="text-muted">Python and so on...</small>
+    </footer>
+  </body>
+</html>

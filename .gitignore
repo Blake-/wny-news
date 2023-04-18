@@ -1,0 +1,6 @@
+*/__pycache__/*
+*/__pycache__/*
+*news/migrations/*
+tide_session.log
+.DS_Store
+headlines/
