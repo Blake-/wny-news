@@ -61,7 +61,7 @@ soup = BeautifulSoup(html_content, 'html.parser')
 wgrz_news = []
 #articles = soup.find_all('div', class_='headline-list')
 articles = soup.find_all('li', class_='headline-list__item')
-for article in articles[:8]:
+for article in articles[:3]:
  title = article.find('a').text
  url = article.find('a').get('href')
  print(url)
