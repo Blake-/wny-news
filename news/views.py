@@ -64,13 +64,28 @@ articles = soup.find_all('li', class_='headline-list__item')
 for article in articles[:3]:
  title = article.find('a').text
  url = article.find('a').get('href')
- print(url)
- print(title)
  grztv_context = {
   'title': title,
   'url': url,
  }
  wgrz_news.append(grztv_context)
+
+olean = 'https://www.oleantimesherald.com/'
+response = requests.get(olean)
+html_content = response.content
+soup = BeautifulSoup(html_content, 'html.parser')
+olean_news = []
+articles = soup.find_all('h3', class_='tnt-headline headline')
+for article in articles[:3]:
+ title = article.find('a').get('aria-label')
+ url = article.find('a').get('href')
+ print(title)
+ print(url)
+ o_context = {
+  'title': title,
+  'url': url,
+ }
+ olean_news.append(o_context)
 
 
 ###############################
@@ -97,4 +112,4 @@ print("Sunset:", sunset.strftime('%I:%M:%S %p'))
 #######################################
 
 def index(request):
- return render(request, 'index.html', {'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news})
+ return render(request, 'index.html', {'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news})

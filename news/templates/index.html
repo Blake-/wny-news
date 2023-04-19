@@ -96,6 +96,24 @@
         {% endif %}
     </div>
     <!-- WGRZ Channel 2 News -->
+
+
+    <!-- Olean News -->
+    <div class="container d-block pt-5">
+      <h2> Olean Times Herald: </h2>
+        {% if olean_news %}
+            {% for value in olean_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Olean News -->
         
     </div>
     </div>
