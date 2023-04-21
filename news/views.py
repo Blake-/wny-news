@@ -79,13 +79,28 @@ articles = soup.find_all('h3', class_='tnt-headline headline')
 for article in articles[:3]:
  title = article.find('a').get('aria-label')
  url = article.find('a').get('href')
- print(title)
- print(url)
  o_context = {
   'title': title,
   'url': url,
  }
  olean_news.append(o_context)
+
+batavia = 'https://www.thedailynewsonline.com/'
+response = requests.get(batavia)
+html_content = response.content
+soup = BeautifulSoup(html_content, 'html.parser')
+batavia_news = []
+articles = soup.find_all('h4', class_='tnt-headline')
+for article in articles[:3]:
+ title = article.find('a').get('aria-label')
+ url = article.find('a').get('href')
+ print(title)
+ print(url)
+ batavia_context = {
+  'title': title,
+  'url': url,
+ }
+ batavia_news.append(batavia_context)
 
 
 ###############################
@@ -112,4 +127,4 @@ print("Sunset:", sunset.strftime('%I:%M:%S %p'))
 #######################################
 
 def index(request):
- return render(request, 'index.html', {'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news})
+ return render(request, 'index.html', {'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news})
