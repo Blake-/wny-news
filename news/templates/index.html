@@ -132,6 +132,23 @@
         {% endif %}
     </div>
     <!-- Olean News -->
+
+    <!-- Rochester News -->
+    <div class="container d-block pt-5">
+      <h2> Rochester Democract & Chronicle: </h2>
+        {% if rochester_news %}
+            {% for value in rochester_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Rochester News -->
         
     </div>
     </div>
