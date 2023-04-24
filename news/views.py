@@ -137,7 +137,7 @@ for story_wrapper in story_wrappers[:3]:
             nytimes_news.append(nytimes_context)
 
 ###############################
-'''
+
 import datetime
 import pytz
 from astral.sun import sun
@@ -156,8 +156,12 @@ sunset = s['sunset'].astimezone(pytz.timezone('America/New_York'))
 # Format the times using strftime()
 print("Sunrise:", sunrise.strftime('%I:%M:%S %p'))
 print("Sunset:", sunset.strftime('%I:%M:%S %p'))
-'''
+
+srise = sunrise.strftime('%-I:%M:%S %p')
+sset = sunset.strftime('%-I:%M:%S %p')
+
 #######################################
 
 def index(request):
- return render(request, 'index.html', {'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+# return render(request, 'index.html', {'sunrise':srise, 'sunset':sset})
+ return render(request, 'index.html', {'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})

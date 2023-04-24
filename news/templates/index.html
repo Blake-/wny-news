@@ -11,10 +11,12 @@
     <!-- Header -->
     <div class="bg-primary p-5">
         <div class="container text-white">
-            <h2 class="display-4 text-center">WNY News Headlines "{{ sunrise }}"</h2>
+            <h2 class="display-4 text-center">WNY News Headlines</h2>
             <br>
-            <p class="lead text-center">Keeping up with WNY & Southern Ontario</p>
-            Last Updated {% now "jS F Y H:i" %}
+<!--            <p class="lead text-center">Keeping up with WNY & Southern Ontario</p> -->
+<!--            <p class="lead text-center">Last Updated {% now "jS F Y H:i" %}</p> -->
+            <p class="lead text-center">Sunrise tomorrow: {{ sunrise }}</p>
+            <p class="lead text-center">Sunset tomorrow: {{ sunset }}</p>
         </div>
     </div>
     <!-- Header -->
