@@ -1,6 +1,8 @@
 ###
 ## https://stackoverflow.com/questions/61899600/django-and-beautifulsoup-run-views-py-on-each-pageload
 ## slow it down somehow
+## https://github.com/bckohan/django-render-static
+## and/or https://stackoverflow.com/questions/22162027/how-do-i-generate-a-static-html-file-from-a-django-template
 ###
 from django.shortcuts import render
 from bs4 import BeautifulSoup
@@ -162,7 +164,9 @@ for pre_element in pre_elements:
 else:
     print('No matching text found.')
 
-
+## wrirte to this file
+#with open("output1.html", "w") as file:
+#    file.write(str(result))
 
 '''
 ###############################
