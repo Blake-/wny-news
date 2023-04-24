@@ -116,6 +116,25 @@ for article in articles[:3]:
  rochester_news.append(rochester_context)
 
 
+url = "https://www.nytimes.com/"
+response = requests.get(url)
+soup = BeautifulSoup(response.content, "html.parser")
+nytimes_news = []
+story_wrappers = soup.find_all("section", {"class": "story-wrapper"})
+for story_wrapper in story_wrappers[:3]:
+    headline_tag = story_wrapper.find("h3", {"class": "indicate-hover"})
+    if headline_tag is not None:
+        headline = headline_tag.text.strip()
+        article_link = story_wrapper.find("a")
+        if article_link is not None:
+            article_link = article_link["href"]
+            nytimes_context = {
+             'headline': headline,
+             'article_link': article_link,
+            }
+            print(headline)
+            print(article_link)
+            nytimes_news.append(nytimes_context)
 
 ###############################
 '''
@@ -141,4 +160,4 @@ print("Sunset:", sunset.strftime('%I:%M:%S %p'))
 #######################################
 
 def index(request):
- return render(request, 'index.html', {'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news})
+ return render(request, 'index.html', {'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
