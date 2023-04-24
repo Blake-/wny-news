@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 import requests
 import ephem
 import datetime
-
+'''
 #def index(request):
 jamestown = 'https://www.post-journal.com/'
 response = requests.get(jamestown)
@@ -139,33 +139,31 @@ for story_wrapper in story_wrappers[:3]:
             print(headline)
             print(article_link)
             nytimes_news.append(nytimes_context)
+
 '''
-##https://subscription.packtpub.com/book/security/9781785283406/1/ch01lvl1sec10/mission-one-upgrade-beautiful-soup
 
+import requests
 from bs4 import BeautifulSoup
-import urllib.request
-query= "http://forecast.weather.gov/shmrn.php?mz=amz117&syn=amz101"
-with urllib.request.urlopen(query) as amz117:
-    document= BeautifulSoup(amz117.read())
-content= document.body.find('div', id='content').div
-synopsis = content.contents[4]
-forecast = content.contents[5]
-strong_list = list(forecast.findAll('strong'))
-timestamp_tag, *forecast_list = strong_list
-for strong in forecast_list:
-    desc= strong.string.strip()
-    print( desc, strong.nextSibling.string.strip() )
 
-###########
-https://stackoverflow.com/questions/44166859/scrape-a-certain-portion-of-html-text-in-r
-weather_con <- read_html("https://forecast.weather.gov/product.php?site=BUF&issuedby=BUF&product=AFD&format=CI&version=1&glossary=1&highlight=off")
+url = 'https://forecast.weather.gov/product.php?site=BUF&issuedby=BUF&product=AFD&format=TXT&version=1&glossary=0&highlight=off'
+response = requests.get(url)
+soup = BeautifulSoup(response.content, 'html.parser')
 
-weather_con <- weather_con %>%
- html_nodes("#localcontent") %>%
-  html_text()
-synopsis2 = regmatches(x = weather_con, 
-                       m = regexpr(pattern = "SYNOPSIS.*DISCUSSION",
-                                   text = weather_con))
+pre_elements = soup.find_all('pre')
+for pre_element in pre_elements:
+    if '.SYNOPSIS...' in pre_element.text:
+        start_index = pre_element.text.index('.SYNOPSIS...') + len('.SYNOPSIS...')
+        end_index = pre_element.text.index('&&')
+        result = pre_element.text[start_index:end_index].strip()
+        result = result.replace('-- Changed Discussion --', '')
+        result = result.replace('-- End Changed Discussion --', '')
+        print(result.strip())
+        break
+else:
+    print('No matching text found.')
+
+
+
 '''
 ###############################
 
@@ -196,3 +194,4 @@ sset = sunset.strftime('%-I:%M:%S %p')
 def index(request):
 # return render(request, 'index.html', {'sunrise':srise, 'sunset':sset})
  return render(request, 'index.html', {'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+'''
