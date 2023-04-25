@@ -4,12 +4,14 @@
 ## https://github.com/bckohan/django-render-static
 ## and/or https://stackoverflow.com/questions/22162027/how-do-i-generate-a-static-html-file-from-a-django-template
 ###
+## almost certainly this one! https://github.com/fabiocaccamo/django-freeze
+
 from django.shortcuts import render
 from bs4 import BeautifulSoup
 import requests
 import ephem
 import datetime
-'''
+
 #def index(request):
 jamestown = 'https://www.post-journal.com/'
 response = requests.get(jamestown)
@@ -142,7 +144,7 @@ for story_wrapper in story_wrappers[:3]:
             print(article_link)
             nytimes_news.append(nytimes_context)
 
-'''
+
 
 import requests
 from bs4 import BeautifulSoup
@@ -159,16 +161,17 @@ for pre_element in pre_elements:
         result = pre_element.text[start_index:end_index].strip()
         result = result.replace('-- Changed Discussion --', '')
         result = result.replace('-- End Changed Discussion --', '')
-        print(result.strip())
+        weather = result
+#        print(result.strip())
         break
 else:
-    print('No matching text found.')
+    print('No weather found.')
 
 ## wrirte to this file
 #with open("output1.html", "w") as file:
 #    file.write(str(result))
 
-'''
+
 ###############################
 
 import datetime
@@ -187,8 +190,8 @@ sunrise = s['sunrise'].astimezone(pytz.timezone('America/New_York'))
 sunset = s['sunset'].astimezone(pytz.timezone('America/New_York'))
 
 # Format the times using strftime()
-print("Sunrise:", sunrise.strftime('%I:%M:%S %p'))
-print("Sunset:", sunset.strftime('%I:%M:%S %p'))
+#print("Sunrise:", sunrise.strftime('%I:%M:%S %p'))
+#print("Sunset:", sunset.strftime('%I:%M:%S %p'))
 
 srise = sunrise.strftime('%-I:%M:%S %p')
 sset = sunset.strftime('%-I:%M:%S %p')
@@ -196,6 +199,6 @@ sset = sunset.strftime('%-I:%M:%S %p')
 #######################################
 
 def index(request):
-# return render(request, 'index.html', {'sunrise':srise, 'sunset':sset})
- return render(request, 'index.html', {'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
-'''
+# return render(request, 'index.html', {'weather':weather})
+ return render(request, 'index.html', {'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+
