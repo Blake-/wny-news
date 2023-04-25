@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% load static %}
+    <link href="static/news.css" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>WNY News Aggregator</title>
   </head>
@@ -15,8 +19,8 @@
             <br>
 <!--            <p class="lead text-center">Keeping up with WNY & Southern Ontario</p> -->
 <!--            <p class="lead text-center">Last Updated {% now "jS F Y H:i" %}</p> -->
-            <p class="lead text-center">Sunrise tomorrow: {{ sunrise }}</p>
-            <p class="lead text-center">Sunset tomorrow: {{ sunset }}</p>
+            <p class="lead text-center">The sun will rise at  {{ sunrise }} and set at {{ sunset }}</p>
+            <p class="lead text-center">Weather Forecast: {{ weather }}</p>
         </div>
     </div>
     <!-- Header -->
