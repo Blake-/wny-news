@@ -62,6 +62,7 @@ for article in articles[:3]:
  }
  ni_news.append(n_context)
 
+
 wgrz = 'https://www.wgrz.com/news'
 response = requests.get(wgrz)
 html_content = response.content
@@ -140,8 +141,8 @@ for story_wrapper in story_wrappers[:3]:
              'headline': headline,
              'article_link': article_link,
             }
-            print(headline)
-            print(article_link)
+#            print(headline)
+#            print(article_link)
             nytimes_news.append(nytimes_context)
 
 
@@ -172,6 +173,34 @@ else:
 #    file.write(str(result))
 
 
+import requests
+from bs4 import BeautifulSoup
+
+reddit = "https://www.reddit.com/r/Buffalo/rising/"
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Referer": "https://www.reddit.com/",
+}
+
+response = requests.get(reddit, headers=headers)
+soup = BeautifulSoup(response.content, "html.parser")
+reddit_news = []
+for post in soup.find_all("div", {"class": "_1oQyIsiPHYt6nx7VOmd1sz"}):
+ title = post.find("h3", {"class": "_eYtD2XCVieq6emjKBH3m"})
+ link = post.find("a", {"class": "SQnoC3ObvgnGjWt90zD9Z"})
+ if title and link:
+  title = title.text.strip()
+  link = link.get('href')
+  reddit_context = {
+   'title': title,
+   'url': link,
+  }
+ print(title)
+ print(link)
+ reddit_news.append(reddit_context)
+
 ###############################
 
 import datetime
@@ -199,6 +228,6 @@ sset = sunset.strftime('%-I:%M:%S %p')
 #######################################
 
 def index(request):
-# return render(request, 'index.html', {'weather':weather})
- return render(request, 'index.html', {'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+# return render(request, 'index.html', {'reddit_news':reddit_news})
+ return render(request, 'index.html', {'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
 
