@@ -222,8 +222,8 @@ sunset = s['sunset'].astimezone(pytz.timezone('America/New_York'))
 #print("Sunrise:", sunrise.strftime('%I:%M:%S %p'))
 #print("Sunset:", sunset.strftime('%I:%M:%S %p'))
 
-srise = sunrise.strftime('%-I:%M:%S %p')
-sset = sunset.strftime('%-I:%M:%S %p')
+srise = sunrise.strftime('%-I:%M')
+sset = sunset.strftime('%-I:%M')
 
 #######################################
 
