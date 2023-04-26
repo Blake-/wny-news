@@ -6,11 +6,16 @@
 ###
 ## almost certainly this one! https://github.com/fabiocaccamo/django-freeze
 
+import requests
+from bs4 import BeautifulSoup
+import feedparser
 from django.shortcuts import render
 from bs4 import BeautifulSoup
 import requests
 import ephem
 import datetime
+
+'''
 
 #def index(request):
 jamestown = 'https://www.post-journal.com/'
@@ -226,8 +231,25 @@ srise = sunrise.strftime('%-I:%M')
 sset = sunset.strftime('%-I:%M')
 
 #######################################
+'''
+
+bizjournals = "http://feeds.bizjournals.com/bizj_buffalo"
+feed = feedparser.parse(bizjournals)
+biz_news = []
+for entry in feed.entries:
+    title = entry.title
+    url = entry.link
+    print(title)
+    print(url)
+    biz_context = {
+     'title': title,
+     'url': url,
+    }
+    biz_news.append(biz_context)
+
+
 
 def index(request):
-# return render(request, 'index.html', {'reddit_news':reddit_news})
- return render(request, 'index.html', {'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+ return render(request, 'index.html', {'biz_news':biz_news})
+# return render(request, 'index.html', {'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
 
