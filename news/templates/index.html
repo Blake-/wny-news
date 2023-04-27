@@ -100,10 +100,30 @@
     </div>
     <!-- NY Times News -->
 
+    <!-- Buffalo Business First -->
+    <div class="container d-block pt-5">
+      <h2> Buffalo Business First: </h2>
+        {% if biz_news %}
+            {% for value in biz_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Buffalo Business First News Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Buffalo Business First -->
 
+
+      <!---------- Right Column ---------->
     </div>
     <div class="col-6">
-      <!-- Right Column -->
+
+      <!---------- Right Column ---------->
+
 
     <!-- Niagara Falls News -->
     <div class="container d-block pt-5">
@@ -192,24 +212,6 @@
     <!-- Reddit Buffalo -->
 
 
-    <!-- Buffalo Business First -->
-    <div class="container d-block pt-5">
-      <h2> Buffalo Business First: </h2>
-        {% if biz_news %}
-            {% for value in biz_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">Buffalo Business First News Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- Buffalo Business First -->
-
-        
     </div>
     </div>
   </div>
