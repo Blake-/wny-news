@@ -16,7 +16,7 @@ import ephem
 import datetime
 import logging
 
-
+'''
 #def index(request):
 jamestown = 'https://www.post-journal.com/'
 response = requests.get(jamestown)
@@ -173,47 +173,26 @@ for pre_element in pre_elements:
 else:
     print('No weather found.')
 
-## wrirte to this file
-#with open("output1.html", "w") as file:
-#    file.write(str(result))
-
-
-import requests
-from bs4 import BeautifulSoup
-
-reddit = "https://www.reddit.com/r/Buffalo/rising/"
-
-headers = {
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
-    "Accept-Language": "en-US,en;q=0.8",
-    "Referer": "https://www.reddit.com/",
-}
-
-response = requests.get(reddit, headers=headers)
-soup = BeautifulSoup(response.content, "html.parser")
+reddit = "https://www.reddit.com/r/Buffalo/rising/.rss"
+feed = feedparser.parse(reddit)
 reddit_news = []
-for post in soup.find_all("div", {"class": "_1oQyIsiPHYt6nx7VOmd1sz"}):
- title = post.find("h3", {"class": "_eYtD2XCVieq6emjKBH3m"})
- link = post.find("a", {"class": "SQnoC3ObvgnGjWt90zD9Z"})
- if title and link:
-  title = title.text.strip()
-  link = link.get('href')
-  reddit_context = {
-   'title': title,
-   'url': link,
-  }
-# print(title)
-# print(link)
- reddit_news.append(reddit_context)
-
-bizjournals = "http://feeds.bizjournals.com/bizj_buffalo"
-feed = feedparser.parse(bizjournals)
-biz_news = []
-for entry in feed.entries:
+for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
     print(title)
     print(url)
+    reddit_context = {
+     'title': title,
+     'url': url,
+    }
+    reddit_news.append(reddit_context)
+
+bizjournals = "http://feeds.bizjournals.com/bizj_buffalo"
+feed = feedparser.parse(bizjournals)
+biz_news = []
+for entry in feed.entries[:3]:
+    title = entry.title
+    url = entry.link
     biz_context = {
      'title': title,
      'url': url,
@@ -250,6 +229,6 @@ sset = sunset.strftime('%-I:%M')
 
 def index(request):
 #return render(request, 'index.html', {'biz_news':biz_news})
- return render(request, 'index.html', {'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
-
+# return render(request, 'index.html', {'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+'''
 
