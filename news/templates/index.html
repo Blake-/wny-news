@@ -118,7 +118,8 @@
     <!-- Buffalo Business First -->
 
 
-      <!---------- Right Column ---------->
+      <!---------- Left Column Ends Here ---------->
+
     </div>
     <div class="col-6">
 
@@ -207,6 +208,24 @@
             {% endfor %}
         {% else %}
             <p class="lead">Reddit News Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Reddit Buffalo -->
+
+
+    <!-- CNBC -->
+    <div class="container d-block pt-5">
+      <h2> CNBC Economy: </h2>
+        {% if cnbc_news %}
+            {% for value in cnbc_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">CNBC Barfed! Something broke!</p>
         {% endif %}
     </div>
     <!-- Reddit Buffalo -->

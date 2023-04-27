@@ -5,6 +5,8 @@
 ## and/or https://stackoverflow.com/questions/22162027/how-do-i-generate-a-static-html-file-from-a-django-template
 ###
 ## almost certainly this one! https://github.com/fabiocaccamo/django-freeze
+## https://www.mattlayman.com/understand-django/serving-static-files/
+## https://github.com/lambdamusic/portfolio-site/blob/master/tools/site-dump-and-publish
 
 import requests
 from bs4 import BeautifulSoup
@@ -16,7 +18,7 @@ import ephem
 import datetime
 import logging
 
-'''
+
 #def index(request):
 jamestown = 'https://www.post-journal.com/'
 response = requests.get(jamestown)
@@ -179,8 +181,6 @@ reddit_news = []
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
-    print(title)
-    print(url)
     reddit_context = {
      'title': title,
      'url': url,
@@ -198,6 +198,34 @@ for entry in feed.entries[:3]:
      'url': url,
     }
     biz_news.append(biz_context)
+
+
+# Fetch the XML feed from the URL
+url = 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258'
+response = requests.get(url)
+
+# Parse the XML feed using feedparser
+feed = feedparser.parse(response.content)
+
+# Extract the required information using BeautifulSoup
+cnbc_news = []
+for entry in feed.entries[:3]:
+    title = entry.title
+    url = entry.link
+    # Fetch the full article page to extract additional information
+    article_response = requests.get(url)
+    article_soup = BeautifulSoup(article_response.content, "html.parser")
+    summary = article_soup.find('div', {'class': 'group'}).text.strip()
+
+    cnbc_context = {
+        'title': title,
+        'url': url,
+    }
+    cnbc_news.append(cnbc_context)
+
+
+
+
 
 
 ###############################
@@ -229,6 +257,7 @@ sset = sunset.strftime('%-I:%M')
 
 def index(request):
 #return render(request, 'index.html', {'biz_news':biz_news})
-# return render(request, 'index.html', {'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
-'''
+ return render(request, 'index.html', {'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+
+
 
