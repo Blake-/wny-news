@@ -6,6 +6,7 @@
 
     {% load static %}
     <link href="static/news.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>WNY News Headline Aggregator</title>
@@ -18,7 +19,7 @@
             <h1 class="display-4 text-center">WNY News Headlines</h1>
             <br>
 <!--            <p class="lead text-center">Keeping up with WNY & Southern Ontario</p> -->
-<!--            <p class="lead text-center">Last Updated {% now "jS F Y H:i" %}</p> -->
+            <p class="lead text-center">Last Updated {% now "jS F Y H:i" %}</p>
             <p class="lead text-center">The sun will rise at  {{ sunrise }} and set at {{ sunset }}</p>
             <p class="lead text-center">Weather Forecast: {{ weather }}</p>
         </div>
