@@ -37,7 +37,7 @@
             {% for value in buffalo_news %}
                 <div class="d-flex">
                  <h5 class="card-title">
-                  <li><a href="https://buffalonews.com/{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                  <li><a href="https://buffalonews.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
                  </h5>
                 </div>
             {% endfor %}
@@ -73,7 +73,7 @@
             {% for value in batavia_news %}
                 <div class="d-flex">
                  <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                  <li><a href="https://www.thedailynewsonline.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
                  </h5>
                 </div>
             {% endfor %}
@@ -133,7 +133,7 @@
             {% for value in ni_news %}
                 <div class="d-flex">
                  <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                  <li><a href="https://www.niagara-gazette.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
                  </h5>
                 </div>
             {% endfor %}
@@ -168,7 +168,7 @@
             {% for value in olean_news %}
                 <div class="d-flex">
                  <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                  <li><a href="https://www.oleantimesherald.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
                  </h5>
                 </div>
             {% endfor %}
@@ -185,7 +185,7 @@
             {% for value in rochester_news %}
                 <div class="d-flex">
                  <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                  <li><a href="https://www.democratandchronicle.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
                  </h5>
                 </div>
             {% endfor %}
@@ -202,7 +202,7 @@
             {% for value in reddit_news %}
                 <div class="d-flex">
                  <h5 class="card-title">
-                  <li><a href="https://reddit.com/{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
                  </h5>
                 </div>
             {% endfor %}
