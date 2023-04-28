@@ -8,7 +8,7 @@
     <link href="static/news.css" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <title>WNY News Aggregator</title>
+    <title>WNY News Headline Aggregator</title>
   </head>
 
   <body>
@@ -32,7 +32,7 @@
 
     <!-- Buffalo News -->
     <div class="container d-block pt-5">
-      <h2> Buffalo News: </h2>
+      <h2><a href="http://buffalonews.com"  target="_blank" class="text-decoration-none text-success">Buffalo News</a>:</h2>
         {% if buffalo_news %}
             {% for value in buffalo_news %}
                 <div class="d-flex">
@@ -50,7 +50,7 @@
 
     <!-- Jamestown News -->
     <div class="container d-block pt-5">
-      <h2> Jamestown: </h2>
+      <h2><a href="https://www.post-journal.com/" target="_blank" class="text-decoration-none text-success">Jamestown Post-Journal</a>: </h2>
         {% if jamestown_news %}
             {% for value in jamestown_news %}
                 <div class="d-flex">
@@ -68,7 +68,7 @@
 
     <!-- Batavia News -->
     <div class="container d-block pt-5">
-      <h2> Batavia: </h2>
+      <h2><a href="https://www.thedailynewsonline.com/" target="_blank" class="text-decoration-none text-success">Batavia Daily News</a>: </h2>
         {% if batavia_news %}
             {% for value in batavia_news %}
                 <div class="d-flex">
@@ -85,7 +85,7 @@
 
     <!-- NYTimes News -->
     <div class="container d-block pt-5">
-      <h2> NY Times: </h2>
+      <h2><a href="https://nytimes.com" target="_blank" class="text-decoration-none text-success">NY Times</a>: </h2>
         {% if nytimes_news %}
             {% for value in nytimes_news %}
                 <div class="d-flex">
@@ -102,7 +102,7 @@
 
     <!-- Buffalo Business First -->
     <div class="container d-block pt-5">
-      <h2> Buffalo Business First: </h2>
+      <h2><a href="https://www.bizjournals.com/buffalo" target="_blank" class="text-decoration-none text-success">Buffalo Business First</a>: </h2>
         {% if biz_news %}
             {% for value in biz_news %}
                 <div class="d-flex">
@@ -128,7 +128,7 @@
 
     <!-- Niagara Falls News -->
     <div class="container d-block pt-5">
-      <h2> Niagara Falls: </h2>
+      <h2><a href="https://www.niagara-gazette.com/" target="_blank" class="text-decoration-none text-success">Niagara Gazette</a>: </h2>
         {% if ni_news %}
             {% for value in ni_news %}
                 <div class="d-flex">
@@ -145,7 +145,7 @@
 
     <!-- WGRZ Channel 2 News -->
     <div class="container d-block pt-5">
-      <h2> WGRZ Channel 2: </h2>
+      <h2><a href="https://wgrz.com" target="_blank" class="text-decoration-none text-success">WGRZ</a>: </h2>
         {% if wgrz_news %}
             {% for value in wgrz_news %}
                 <div class="d-flex">
@@ -163,7 +163,7 @@
 
     <!-- Olean News -->
     <div class="container d-block pt-5">
-      <h2> Olean Times Herald: </h2>
+      <h2><a href="https://www.oleantimesherald.com/" target="_blank" class="text-decoration-none text-success">Olean Times Herald</a>: </h2>
         {% if olean_news %}
             {% for value in olean_news %}
                 <div class="d-flex">
@@ -180,7 +180,7 @@
 
     <!-- Rochester News -->
     <div class="container d-block pt-5">
-      <h2> Rochester Democract & Chronicle: </h2>
+      <h2><a href="https://www.democratandchronicle.com/" target="_blank" class="text-decoration-none text-success">Rochester Democract & Chronicle</a>: </h2>
         {% if rochester_news %}
             {% for value in rochester_news %}
                 <div class="d-flex">
@@ -197,7 +197,7 @@
 
     <!-- Reddit Buffalo -->
     <div class="container d-block pt-5">
-      <h2> Reddit Buffalo: </h2>
+      <h2><a href="https://reddit.com/r/buffalo" target="_blank" class="text-decoration-none text-success">Reddit Buffalo</a>: </h2>
         {% if reddit_news %}
             {% for value in reddit_news %}
                 <div class="d-flex">
@@ -215,7 +215,7 @@
 
     <!-- CNBC -->
     <div class="container d-block pt-5">
-      <h2> CNBC Economy: </h2>
+      <h2><a href="https://cnbc.com/" target="_blank" class="text-decoration-none text-success">CNBC Economy</a>: </h2>
         {% if cnbc_news %}
             {% for value in cnbc_news %}
                 <div class="d-flex">
@@ -228,7 +228,7 @@
             <p class="lead">CNBC Barfed! Something broke!</p>
         {% endif %}
     </div>
-    <!-- Reddit Buffalo -->
+    <!-- CNBC -->
 
 
     </div>
@@ -238,7 +238,7 @@
 
     <!-- Footer -->
     <footer class="text-end p-5">
-        <small class="text-muted"><a href="./about.html>About this site</a></small>
+        <small class="text-muted"><a href="./static/about.html>About this site</a></small>
     </footer>
     <!-- Footer -->
 
