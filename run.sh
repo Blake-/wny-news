@@ -6,8 +6,8 @@ nohup python3 manage.py runserver --noreload &
 
 sleep 15
 
-wget -E -H -k -K -p http://127.0.0.1:8000/
+wget -m -k -p -nH -P wnynews.com  http://127.0.0.1:8000/
 
-echo "Done"
+echo "Got it!"
 
 pkill -f runserver
