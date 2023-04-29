@@ -1,12 +1,6 @@
-###
-## https://stackoverflow.com/questions/61899600/django-and-beautifulsoup-run-views-py-on-each-pageload
-## slow it down somehow
-## https://github.com/bckohan/django-render-static
-## and/or https://stackoverflow.com/questions/22162027/how-do-i-generate-a-static-html-file-from-a-django-template
-###
-## almost certainly this one! https://github.com/fabiocaccamo/django-freeze
-## https://www.mattlayman.com/understand-django/serving-static-files/
-## https://github.com/lambdamusic/portfolio-site/blob/master/tools/site-dump-and-publish
+####
+## This code is A MESS don't use it for anything!
+####
 
 import requests
 from bs4 import BeautifulSoup
@@ -198,16 +192,11 @@ for entry in feed.entries[:3]:
      'url': url,
     }
     biz_news.append(biz_context)
+## move everything fetching RSS?
 
-
-# Fetch the XML feed from the URL
 url = 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258'
 response = requests.get(url)
-
-# Parse the XML feed using feedparser
 feed = feedparser.parse(response.content)
-
-# Extract the required information using BeautifulSoup
 cnbc_news = []
 for entry in feed.entries[:3]:
     title = entry.title
@@ -244,10 +233,6 @@ s = sun(city.observer, date=datetime.date.today())
 # Get the sunrise and sunset times
 sunrise = s['sunrise'].astimezone(pytz.timezone('America/New_York'))
 sunset = s['sunset'].astimezone(pytz.timezone('America/New_York'))
-
-# Format the times using strftime()
-#print("Sunrise:", sunrise.strftime('%I:%M:%S %p'))
-#print("Sunset:", sunset.strftime('%I:%M:%S %p'))
 
 srise = sunrise.strftime('%-I:%M')
 sset = sunset.strftime('%-I:%M')
