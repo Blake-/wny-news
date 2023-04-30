@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/usr/bin/pkill pkill -f runserver
+/usr/bin/pkill -f runserver
 
 cd /Users/blake/Desktop/newsaggregator
 
@@ -10,7 +10,7 @@ cd /Users/blake/Desktop/newsaggregator
 
 /opt/homebrew/bin/wget -m -k -p -nH -P wnynews.com  http://127.0.0.1:8000/
 
-/usr/bin/pkill pkill -f runserver
+/usr/bin/pkill -f runserver
 
 time=$(date +%c)
 /usr/bin/git add .
