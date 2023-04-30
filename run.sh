@@ -14,5 +14,5 @@ cd /Users/blake/Desktop/newsaggregator
 
 time=$(date +%r)
 git add .
-git commit -m "news at: $timestamp"
+git commit -m "news at: $time"
 git push origin main
