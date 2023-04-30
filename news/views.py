@@ -36,7 +36,7 @@ html_content = response.content
 soup = BeautifulSoup(html_content, 'html.parser')
 buffalo_news = []
 articles = soup.find_all('h3', class_='tnt-headline')
-for article in articles[:3]:
+for article in articles[:6]:
  title = article.find('a').text.strip().replace("\n", "")
  url = article.find('a').get('href')
  b_context = {
@@ -52,7 +52,7 @@ html_content = response.content
 soup = BeautifulSoup(html_content, 'html.parser')
 ni_news = []
 articles = soup.find_all('h3', class_='tnt-headline')
-for article in articles[:3]:
+for article in articles[:6]:
  title = article.find('a').text.strip().replace("\n", "")
  url = article.find('a').get('href')
 # print(url)
@@ -71,7 +71,7 @@ soup = BeautifulSoup(html_content, 'html.parser')
 wgrz_news = []
 #articles = soup.find_all('div', class_='headline-list')
 articles = soup.find_all('li', class_='headline-list__item')
-for article in articles[:3]:
+for article in articles[:6]:
  title = article.find('a').text
  url = article.find('a').get('href')
  grztv_context = {
@@ -86,7 +86,7 @@ html_content = response.content
 soup = BeautifulSoup(html_content, 'html.parser')
 olean_news = []
 articles = soup.find_all('h3', class_='tnt-headline headline')
-for article in articles[:3]:
+for article in articles[:6]:
  title = article.find('a').get('aria-label')
  url = article.find('a').get('href')
  o_context = {
@@ -101,7 +101,7 @@ html_content = response.content
 soup = BeautifulSoup(html_content, 'html.parser')
 batavia_news = []
 articles = soup.find_all('h4', class_='tnt-headline')
-for article in articles[:3]:
+for article in articles[:6]:
  title = article.find('a').get('aria-label')
  url = article.find('a').get('href')
  batavia_context = {
@@ -116,7 +116,7 @@ html_content = response.content
 soup = BeautifulSoup(html_content, 'html.parser')
 rochester_news = []
 articles = soup.find_all('div', class_='gnt_m gnt_m_lb')
-for article in articles[:3]:
+for article in articles[:6]:
  title = article.find('a').text
  url = article.find('a').get('href')
  rochester_context = {
@@ -131,7 +131,7 @@ response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 nytimes_news = []
 story_wrappers = soup.find_all("section", {"class": "story-wrapper"})
-for story_wrapper in story_wrappers[:3]:
+for story_wrapper in story_wrappers[:6]:
     headline_tag = story_wrapper.find("h3", {"class": "indicate-hover"})
     if headline_tag is not None:
         headline = headline_tag.text.strip()
@@ -184,7 +184,7 @@ for entry in feed.entries[:6]:
 bizjournals = "http://feeds.bizjournals.com/bizj_buffalo"
 feed = feedparser.parse(bizjournals)
 biz_news = []
-for entry in feed.entries[:3]:
+for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
     biz_context = {
@@ -198,7 +198,7 @@ url = 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&i
 response = requests.get(url)
 feed = feedparser.parse(response.content)
 cnbc_news = []
-for entry in feed.entries[:3]:
+for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
     # Fetch the full article page to extract additional information
