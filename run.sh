@@ -12,7 +12,7 @@ cd /Users/blake/Desktop/newsaggregator
 
 #pkill -f runserver
 
-time=$(date +%r)
+time=$(date +%c)
 git add .
-git commit -m "news at: $time"
+git commit -m "fix date"
 git push origin main
