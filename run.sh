@@ -1,5 +1,7 @@
 #!/bin/bash
 
+/usr/bin/pkill pkill -f runserver
+
 cd /Users/blake/Desktop/newsaggregator
 
 /usr/bin/nohup /opt/homebrew/bin/python3 manage.py runserver --noreload &
