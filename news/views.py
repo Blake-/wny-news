@@ -238,12 +238,62 @@ history_news = []
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
-    print(title)
     history_context = {
      'title': title,
      'url': url,
     }
     history_news.append(history_context)
+
+axios = "https://api.axios.com/feed/"
+feed = feedparser.parse(axios)
+axios_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    axios_context = {
+     'title': title,
+     'url': url,
+    }
+    axios_news.append(axios_context)
+
+
+theverge = "https://www.theverge.com/rss/index.xml"
+feed = feedparser.parse(theverge)
+theverge_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    theverge_context = {
+     'title': title,
+     'url': url,
+    }
+    theverge_news.append(theverge_context)
+
+buffalorising = "https://www.buffalorising.com/feed/"
+feed = feedparser.parse(buffalorising)
+buffalorising_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    buffalorising_context = {
+     'title': title,
+     'url': url,
+    }
+    buffalorising_news.append(buffalorising_context)
+
+artvoice = "https://artvoice.com/feed/"
+feed = feedparser.parse(artvoice)
+artvoice_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    print(title)
+    url = entry.link
+    artvoice_context = {
+     'title': title,
+     'url': url,
+    }
+    artvoice_news.append(artvoice_context)
+
 
 ## move everything fetching RSS?
 
@@ -295,7 +345,7 @@ sset = sunset.strftime('%-I:%M')
 
 def index(request):
 #return render(request, 'index.html', {'biz_news':biz_news})
- return render(request, 'index.html', {'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+ return render(request, 'index.html', {'artvoice_news':artvoice_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
 
 
 
