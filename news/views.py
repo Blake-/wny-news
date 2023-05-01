@@ -110,20 +110,20 @@ for article in articles[:6]:
  }
  batavia_news.append(batavia_context)
 
-rochester = 'https://www.democratandchronicle.com/'
-response = requests.get(rochester)
-html_content = response.content
-soup = BeautifulSoup(html_content, 'html.parser')
-rochester_news = []
-articles = soup.find_all('div', class_='gnt_m gnt_m_lb')
-for article in articles[:6]:
- title = article.find('a').text
- url = article.find('a').get('href')
- rochester_context = {
-  'title': title,
-  'url': url,
- }
- rochester_news.append(rochester_context)
+#rochester = 'https://www.democratandchronicle.com/'
+#response = requests.get(rochester)
+#html_content = response.content
+#soup = BeautifulSoup(html_content, 'html.parser')
+#rochester_news = []
+#articles = soup.find_all('div', class_='gnt_m gnt_m_lb')
+#for article in articles[:6]:
+# title = article.find('a').text
+# url = article.find('a').get('href')
+# rochester_context = {
+#  'title': title,
+#  'url': url,
+# }
+# rochester_news.append(rochester_context)
 
 
 url = "https://www.nytimes.com/"
@@ -192,6 +192,20 @@ for entry in feed.entries[:6]:
      'url': url,
     }
     biz_news.append(biz_context)
+
+rochester = "http://rssfeeds.democratandchronicle.com/Democratandchronicle/BreakingNewsAndTopStories"
+feed = feedparser.parse(rochester)
+rochester_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    print(title)
+    rochester_context = {
+     'title': title,
+     'url': url,
+    }
+    rochester_news.append(rochester_context)
+
 ## move everything fetching RSS?
 
 url = 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258'
