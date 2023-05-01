@@ -279,6 +279,23 @@
     </div>
     <!-- Reddit Buffalo -->
 
+    <!-- WBFO -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://wbfo.org" target="_blank" class="text-decoration-none text-success">WBFO</a>: </h2>
+        {% if wbfo_news %}
+            {% for value in wbfo_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">WBFO failed!</p>
+        {% endif %}
+    </div>
+    <!-- WBFO -->
+
 
     <!-- CNBC -->
     <div class="container d-block pt-5">

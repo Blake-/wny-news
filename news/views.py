@@ -308,6 +308,19 @@ for entry in feed.entries[:6]:
     }
     dailynews_news.append(dailynews_context)
 
+wbfo = "https://www.wbfo.org/tags/new-york-news.rss"
+feed = feedparser.parse(wbfo)
+wbfo_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    print(title)
+    url = entry.link
+    wbfo_context = {
+     'title': title,
+     'url': url,
+    }
+    wbfo_news.append(wbfo_context)
+
 
 ## move everything fetching RSS?
 
@@ -359,7 +372,7 @@ sset = sunset.strftime('%-I:%M')
 
 def index(request):
 #return render(request, 'index.html', {'biz_news':biz_news})
- return render(request, 'index.html', {'dailynews_news':dailynews_news, 'artvoice_news':artvoice_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+ return render(request, 'index.html', {'wbfo_news':wbfo_news, 'dailynews_news':dailynews_news, 'artvoice_news':artvoice_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
 
 
 
