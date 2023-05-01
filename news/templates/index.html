@@ -252,7 +252,7 @@
             {% for value in rochester_news %}
                 <div class="d-flex">
                  <h5 class="card-title">
-                  <li><a href="https://www.democratandchronicle.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
                  </h5>
                 </div>
             {% endfor %}
