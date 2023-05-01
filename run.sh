@@ -6,7 +6,7 @@ cd /Users/blake/Desktop/newsaggregator
 
 /usr/bin/nohup /opt/homebrew/bin/python3 manage.py runserver --noreload &
 
-/bin/sleep 25
+/bin/sleep 35
 
 /opt/homebrew/bin/wget -m -k -p -nH -P docs  http://127.0.0.1:8000/
 
@@ -14,5 +14,5 @@ cd /Users/blake/Desktop/newsaggregator
 
 time=$(date +%c)
 /usr/bin/git add .
-/usr/bin/git commit -m "News update: $time"
+/usr/bin/git commit -m "Headlines update: $time"
 /usr/bin/git push origin main
