@@ -83,12 +83,12 @@
 
     <!-- NYTimes News -->
     <div class="container d-block pt-5">
-      <h2><a href="https://nytimes.com" target="_blank" class="text-decoration-none text-success">NY Times</a>: </h2>
+      <h2><a href="https://www.nytimes.com/section/nyregion" target="_blank" class="text-decoration-none text-success">NY Times - NY Region</a>: </h2>
         {% if nytimes_news %}
             {% for value in nytimes_news %}
                 <div class="d-flex">
                  <h5 class="card-title">
-                  <li><a href="{{ value.article_link }}" target="_blank" class="text-decoration-none text-dark">{{ value.headline }}</a>
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
                  </h5>
                 </div>
             {% endfor %}
