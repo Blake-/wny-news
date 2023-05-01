@@ -115,6 +115,23 @@
     </div>
     <!-- Buffalo Business First -->
 
+    <!-- Toronto Star -->
+    <div class="container d-block pt-5">
+      <h2><a href="http://www.thestar.com/" target="_blank" class="text-decoration-none text-success">The Toronto Star</a>: </h2>
+        {% if toronto_news %}
+            {% for value in toronto_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Toronto Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Toronto Star -->
+
 
       <!---------- Left Column Ends Here ---------->
 
