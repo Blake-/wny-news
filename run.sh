@@ -8,7 +8,7 @@ cd /Users/blake/Desktop/newsaggregator
 
 /bin/sleep 25
 
-/opt/homebrew/bin/wget -m -k -p -nH -P wnynews.com  http://127.0.0.1:8000/
+/opt/homebrew/bin/wget -m -k -p -nH -P docs  http://127.0.0.1:8000/
 
 /usr/bin/pkill -f runserver
 
