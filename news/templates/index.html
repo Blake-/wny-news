@@ -245,6 +245,23 @@
     </div>
     <!-- CNBC -->
 
+    <!-- History -->
+    <div class="container d-block pt-5">
+      <h2><a href="http://news.bbc.co.uk/onthisday/default.stm" target="_blank" class="text-decoration-none text-success">On This Day In History</a>: </h2>
+        {% if history_news %}
+            {% for value in history_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">History Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- History -->
+
 
     </div>
     </div>

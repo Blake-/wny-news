@@ -225,12 +225,25 @@ toronto_news = []
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
-    print(title)
+#    print(title)
     toronto_context = {
      'title': title,
      'url': url,
     }
     toronto_news.append(toronto_context)
+
+history = "http://news.bbc.co.uk/rss/on_this_day/front_page/rss.xml"
+feed = feedparser.parse(history)
+history_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    print(title)
+    history_context = {
+     'title': title,
+     'url': url,
+    }
+    history_news.append(history_context)
 
 ## move everything fetching RSS?
 
@@ -282,7 +295,7 @@ sset = sunset.strftime('%-I:%M')
 
 def index(request):
 #return render(request, 'index.html', {'biz_news':biz_news})
- return render(request, 'index.html', {'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+ return render(request, 'index.html', {'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
 
 
 
