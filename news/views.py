@@ -212,12 +212,25 @@ nytimes_news = []
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
-    print(title)
+#    print(title)
     nytimes_context = {
      'title': title,
      'url': url,
     }
     nytimes_news.append(nytimes_context)
+
+toronto = "http://www.thestar.com/content/thestar/feed.RSSManagerServlet.articlestopstories.rss"
+feed = feedparser.parse(toronto)
+toronto_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    print(title)
+    toronto_context = {
+     'title': title,
+     'url': url,
+    }
+    toronto_news.append(toronto_context)
 
 ## move everything fetching RSS?
 
