@@ -167,24 +167,6 @@
     </div>
     <!-- ArtVoice -->
 
-    <!-- Daily News -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://www.thedailynewsonline.com/" target="_blank" class="text-decoration-none text-success">The Daily News</a>: </h2>
-        {% if dailynews_news %}
-            {% for value in dailynews_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">Daily News Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- ArtVoice -->
-
-
       <!---------- Left Column Ends Here ---------->
 
     </div>
