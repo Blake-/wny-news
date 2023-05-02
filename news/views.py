@@ -20,7 +20,7 @@ html_content = response.content
 soup = BeautifulSoup(html_content, 'html.parser')
 jamestown_news = []
 articles = soup.find_all('article')
-for article in articles[:3]:
+for article in articles[:6]:
  title = article.find('h1').text
  url = article.find('a').get('href')
  j_context = {
