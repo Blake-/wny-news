@@ -295,19 +295,6 @@ for entry in feed.entries[:6]:
     artvoice_news.append(artvoice_context)
 
 
-dailynews = "https://www.thedailynewsonline.com/search/?f=rss"
-feed = feedparser.parse(dailynews)
-dailynews_news = []
-for entry in feed.entries[:6]:
-    title = entry.title
-    print(title)
-    url = entry.link
-    dailynews_context = {
-     'title': title,
-     'url': url,
-    }
-    dailynews_news.append(dailynews_context)
-
 wbfo = "https://www.wbfo.org/tags/new-york-news.rss"
 feed = feedparser.parse(wbfo)
 wbfo_news = []
