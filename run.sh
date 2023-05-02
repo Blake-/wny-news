@@ -2,7 +2,7 @@
 
 /usr/bin/pkill -f runserver
 
-cd /Users/blake/Desktop/newsaggregator
+cd /Users/blake/projects/newsaggregator
 
 /usr/bin/nohup /opt/homebrew/bin/python3 manage.py runserver --noreload &
 
