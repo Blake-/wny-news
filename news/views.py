@@ -12,7 +12,7 @@ import ephem
 import datetime
 import logging
 
-'''
+
 #def index(request):
 jamestown = 'https://www.post-journal.com/'
 response = requests.get(jamestown)
@@ -62,6 +62,20 @@ for article in articles[:6]:
   'url': url,
  }
  ni_news.append(n_context)
+
+
+#url = "https://www.wkbw.com/news"
+#response = requests.get(url)
+#soup = BeautifulSoup(response.content, "html.parser")
+#
+#article_blocks = soup.find_all("div", class_="List-items-row-item")
+#
+#for article in article_blocks:
+#    headline = article.find("h3", class_="ListItem-title").text.strip()
+#    article_link = article.find("a")["href"]
+#    print(headline)
+#    print(article_link)
+
 
 
 
@@ -356,26 +370,6 @@ srise = sunrise.strftime('%-I:%M')
 sset = sunset.strftime('%-I:%M')
 
 #######################################
-'''
-import requests
-from bs4 import BeautifulSoup
-
-url = "https://www.wkbw.com/news"
-response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
-
-soup = BeautifulSoup(response.content, "html.parser")
-
-# Find all the article blocks
-article_blocks = soup.find_all("div", {"class": "list-items-row-item"})
-
-# Extract the headlines and links from the article blocks
-for article_block in article_blocks:
-    headline = article_block.find("h2").text.strip()
-    article_link = article_block.find("a")["href"]
-    print(headline)
-    print(article_link)
-
-
 
 
 def index(request):
