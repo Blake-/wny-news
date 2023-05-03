@@ -12,7 +12,7 @@ import ephem
 import datetime
 import logging
 
-
+'''
 #def index(request):
 jamestown = 'https://www.post-journal.com/'
 response = requests.get(jamestown)
@@ -62,6 +62,7 @@ for article in articles[:6]:
   'url': url,
  }
  ni_news.append(n_context)
+
 
 
 wgrz = 'https://www.wgrz.com/news'
@@ -286,7 +287,7 @@ feed = feedparser.parse(artvoice)
 artvoice_news = []
 for entry in feed.entries[:6]:
     title = entry.title
-    print(title)
+#    print(title)
     url = entry.link
     artvoice_context = {
      'title': title,
@@ -300,7 +301,7 @@ feed = feedparser.parse(wbfo)
 wbfo_news = []
 for entry in feed.entries[:6]:
     title = entry.title
-    print(title)
+#    print(title)
     url = entry.link
     wbfo_context = {
      'title': title,
@@ -355,11 +356,31 @@ srise = sunrise.strftime('%-I:%M')
 sset = sunset.strftime('%-I:%M')
 
 #######################################
+'''
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://www.wkbw.com/news"
+response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
+
+soup = BeautifulSoup(response.content, "html.parser")
+
+# Find all the article blocks
+article_blocks = soup.find_all("div", {"class": "list-items-row-item"})
+
+# Extract the headlines and links from the article blocks
+for article_block in article_blocks:
+    headline = article_block.find("h2").text.strip()
+    article_link = article_block.find("a")["href"]
+    print(headline)
+    print(article_link)
+
+
 
 
 def index(request):
-#return render(request, 'index.html', {'biz_news':biz_news})
- return render(request, 'index.html', {'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+ return render(request, 'index.html', {'biz_news':biz_news})
+# return render(request, 'index.html', {'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
 
 
 
