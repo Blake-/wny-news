@@ -210,6 +210,23 @@
     </div>
     <!-- WGRZ Channel 2 News -->
 
+    <!-- WIVB Channel 7 News -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://wivb.com" target="_blank" class="text-decoration-none text-success">WIVB</a>: </h2>
+        {% if wivb_news %}
+            {% for value in wivb_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- WIVB Channel 4 News -->
+
     <!-- WKBW Channel 7 News -->
     <div class="container d-block pt-5">
       <h2><a href="https://wkbw.com" target="_blank" class="text-decoration-none text-success">WKBW</a>: </h2>
@@ -222,7 +239,7 @@
                 </div>
             {% endfor %}
         {% else %}
-            <p class="lead">Something broke!</p>
+            <p class="lead">WKBW headlines are failing!</p>
         {% endif %}
     </div>
     <!-- WKBW Channel 7 News -->

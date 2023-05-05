@@ -64,18 +64,22 @@ for article in articles[:6]:
  ni_news.append(n_context)
 
 
-#url = "https://www.wkbw.com/news"
-#response = requests.get(url)
-#soup = BeautifulSoup(response.content, "html.parser")
-#
-#article_blocks = soup.find_all("div", class_="List-items-row-item")
-#
-#for article in article_blocks:
-#    headline = article.find("h3", class_="ListItem-title").text.strip()
-#    article_link = article.find("a")["href"]
-#    print(headline)
-#    print(article_link)
+url = "https://www.wkbw.com/news"
+response = requests.get(url)
+soup = BeautifulSoup(response.content, "html.parser")
 
+article_blocks = soup.find_all("div", class_="List-items-row-item")
+wkbw_news = []
+for article in article_blocks[:6]:
+    title = article.find("h3", class_="ListItem-title").text.strip()
+    url = article.find("a")["href"]
+    print(title)
+    print(url)
+    kb_context = {
+     'title': title,
+     'url': url,
+    }
+    wkbw_news.append(kb_context)
 
 
 
@@ -324,6 +328,20 @@ for entry in feed.entries[:6]:
     wbfo_news.append(wbfo_context)
 
 
+wivb = "https://www.wivb.com/feed/"
+feed = feedparser.parse(wivb)
+wivb_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+#    print(title)
+    url = entry.link
+    wivb_context = {
+     'title': title,
+     'url': url,
+    }
+    wivb_news.append(wivb_context)
+
+
 ## move everything fetching RSS?
 
 url = 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258'
@@ -374,7 +392,7 @@ sset = sunset.strftime('%-I:%M')
 
 def index(request):
 # return render(request, 'index.html', {'biz_news':biz_news})
- return render(request, 'index.html', {'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+ return render(request, 'index.html', {'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
 
 
 
