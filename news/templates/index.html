@@ -165,59 +165,6 @@
     </div>
     <!-- Toronto Star -->
 
-    <!-- History -->
-    <div class="container d-block pt-5">
-      <h2><a href="http://news.bbc.co.uk/onthisday/default.stm" target="_blank" class="text-decoration-none text-success">On This Day In History</a>: </h2>
-        {% if history_news %}
-            {% for value in history_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">History Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- History -->
-
-
-    <!-- Axios -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://axios.com" target="_blank" class="text-decoration-none text-success">Axios</a>: </h2>
-        {% if axios_news %}
-            {% for value in axios_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">History Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- Axios -->
-
-    <!-- The Verge -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://theverge.com/" target="_blank" class="text-decoration-none text-success">The Verge</a>: </h2>
-        {% if theverge_news %}
-            {% for value in theverge_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">The Verge Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- The Verge -->
-
-
 
       <!---------- Left Column Ends Here ---------->
 
@@ -324,7 +271,7 @@
                 </div>
             {% endfor %}
         {% else %}
-            <p class="lead">WBFO failed!</p>
+            <p class="lead">Spectrum failed!</p>
         {% endif %}
     </div>
     <!-- Spectrum -->
@@ -384,6 +331,41 @@
 
 
 
+
+    </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Bottom Sites -->
+<div class="container text-white" style="background-color: blue;">
+<p class="lead text-center"> - Other Sites - </p>
+</div>
+    <!-- Bottom Sites -->
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <!-- Left Column -->
+
+    <!-- The Verge -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://theverge.com/" target="_blank" class="text-decoration-none text-success">The Verge</a>: </h2>
+        {% if theverge_news %}
+            {% for value in theverge_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">The Verge Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- The Verge -->
+
+
     <!-- CNBC -->
     <div class="container d-block pt-5">
       <h2><a href="https://cnbc.com/" target="_blank" class="text-decoration-none text-success">CNBC Economy</a>: </h2>
@@ -401,10 +383,60 @@
     </div>
     <!-- CNBC -->
 
+
+
+      <!---------- Left Column Ends Here ---------->
     </div>
+
+    <div class="col-6">
+
+      <!---------- Right Column ---------->
+
+
+    <!-- History -->
+    <div class="container d-block pt-5">
+      <h2><a href="http://news.bbc.co.uk/onthisday/default.stm" target="_blank" class="text-decoration-none text-success">On This Day In History</a>: </h2>
+        {% if history_news %}
+            {% for value in history_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">History Barfed! Something broke!</p>
+        {% endif %}
     </div>
-  </div>
+    <!-- History -->
+
+
+    <!-- Axios -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://axios.com" target="_blank" class="text-decoration-none text-success">Axios</a>: </h2>
+        {% if axios_news %}
+            {% for value in axios_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">History Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Axios -->
+
+
+
+    <!-- Niagara Falls News -->
+
+    <!-- Niagara Falls News -->
+
+      <!---------- End Right Column ---------->
 </div>
+
 
     <!-- Footer -->
     <footer class="text-end p-5">
