@@ -341,6 +341,19 @@ for entry in feed.entries[:6]:
     }
     wivb_news.append(wivb_context)
 
+#spectrum = "https://spectrumlocalnews.com/services/contentfeed.nys%7cbuffalo%7cnews.landing.rss"
+#feed = feedparser.parse(spectrum)
+#spectrum_news = []
+#for entry in feed.entries[:6]:
+#    title = entry.title
+#    print(title)
+#    url = entry.link
+#    spectrum_context = {
+#     'title': title,
+#     'url': url,
+#    }
+#    spectrum_news.append(spectrum_context)
+
 
 ## move everything fetching RSS?
 
