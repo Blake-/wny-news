@@ -45,6 +45,56 @@
     </div>
     <!-- Buffalo News -->
 
+    <!-- Buffalo Business First -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.bizjournals.com/buffalo" target="_blank" class="text-decoration-none text-success">Buffalo Business First</a>: </h2>
+        {% if biz_news %}
+            {% for value in biz_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Buffalo Business First News Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Buffalo Business First -->
+
+    <!-- Buffalo Rising -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.buffalorising.com/" target="_blank" class="text-decoration-none text-success">Buffalo Rising</a>: </h2>
+        {% if buffalorising_news %}
+            {% for value in buffalorising_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Toronto Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Buffalo Rising -->
+
+    <!-- ArtVoice -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.artvoice.com/" target="_blank" class="text-decoration-none text-success">Art Voice</a>: </h2>
+        {% if artvoice_news %}
+            {% for value in artvoice_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Artvoice! Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- ArtVoice -->
 
     <!-- Jamestown News -->
     <div class="container d-block pt-5">
@@ -98,23 +148,6 @@
     </div>
     <!-- NY Times News -->
 
-    <!-- Buffalo Business First -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://www.bizjournals.com/buffalo" target="_blank" class="text-decoration-none text-success">Buffalo Business First</a>: </h2>
-        {% if biz_news %}
-            {% for value in biz_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">Buffalo Business First News Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- Buffalo Business First -->
-
     <!-- Toronto Star -->
     <div class="container d-block pt-5">
       <h2><a href="https://www.thestar.com/" target="_blank" class="text-decoration-none text-success">The Toronto Star</a>: </h2>
@@ -132,12 +165,11 @@
     </div>
     <!-- Toronto Star -->
 
-
-    <!-- Buffalo Rising -->
+    <!-- History -->
     <div class="container d-block pt-5">
-      <h2><a href="https://www.buffalorising.com/" target="_blank" class="text-decoration-none text-success">Buffalo Rising</a>: </h2>
-        {% if buffalorising_news %}
-            {% for value in buffalorising_news %}
+      <h2><a href="http://news.bbc.co.uk/onthisday/default.stm" target="_blank" class="text-decoration-none text-success">On This Day In History</a>: </h2>
+        {% if history_news %}
+            {% for value in history_news %}
                 <div class="d-flex">
                  <h5 class="card-title">
                   <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
@@ -145,27 +177,14 @@
                 </div>
             {% endfor %}
         {% else %}
-            <p class="lead">Toronto Barfed! Something broke!</p>
+            <p class="lead">History Barfed! Something broke!</p>
         {% endif %}
     </div>
-    <!-- Buffalo Rising -->
+    <!-- History -->
 
-    <!-- ArtVoice -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://www.artvoice.com/" target="_blank" class="text-decoration-none text-success">Art Voice</a>: </h2>
-        {% if artvoice_news %}
-            {% for value in artvoice_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">Artvoice! Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- ArtVoice -->
+
+
+
 
       <!---------- Left Column Ends Here ---------->
 
@@ -173,24 +192,6 @@
     <div class="col-6">
 
       <!---------- Right Column ---------->
-
-
-    <!-- Niagara Falls News -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://www.niagara-gazette.com/" target="_blank" class="text-decoration-none text-success">Niagara Gazette</a>: </h2>
-        {% if ni_news %}
-            {% for value in ni_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="https://www.niagara-gazette.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- Niagara Falls News -->
 
     <!-- WGRZ Channel 2 News -->
     <div class="container d-block pt-5">
@@ -208,41 +209,6 @@
         {% endif %}
     </div>
     <!-- WGRZ Channel 2 News -->
-
-
-    <!-- Olean News -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://www.oleantimesherald.com/" target="_blank" class="text-decoration-none text-success">Olean Times Herald</a>: </h2>
-        {% if olean_news %}
-            {% for value in olean_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="https://www.oleantimesherald.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- Olean News -->
-
-    <!-- Rochester News -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://www.democratandchronicle.com/" target="_blank" class="text-decoration-none text-success">Rochester Democract & Chronicle</a>: </h2>
-        {% if rochester_news %}
-            {% for value in rochester_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- Rochester News -->
 
     <!-- Reddit Buffalo -->
     <div class="container d-block pt-5">
@@ -279,6 +245,60 @@
     <!-- WBFO -->
 
 
+    <!-- Niagara Falls News -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.niagara-gazette.com/" target="_blank" class="text-decoration-none text-success">Niagara Gazette</a>: </h2>
+        {% if ni_news %}
+            {% for value in ni_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="https://www.niagara-gazette.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Niagara Falls News -->
+
+
+    <!-- Olean News -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.oleantimesherald.com/" target="_blank" class="text-decoration-none text-success">Olean Times Herald</a>: </h2>
+        {% if olean_news %}
+            {% for value in olean_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="https://www.oleantimesherald.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Olean News -->
+
+    <!-- Rochester News -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.democratandchronicle.com/" target="_blank" class="text-decoration-none text-success">Rochester Democract & Chronicle</a>: </h2>
+        {% if rochester_news %}
+            {% for value in rochester_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Rochester News -->
+
+
+
     <!-- CNBC -->
     <div class="container d-block pt-5">
       <h2><a href="https://cnbc.com/" target="_blank" class="text-decoration-none text-success">CNBC Economy</a>: </h2>
@@ -295,23 +315,6 @@
         {% endif %}
     </div>
     <!-- CNBC -->
-
-    <!-- History -->
-    <div class="container d-block pt-5">
-      <h2><a href="http://news.bbc.co.uk/onthisday/default.stm" target="_blank" class="text-decoration-none text-success">On This Day In History</a>: </h2>
-        {% if history_news %}
-            {% for value in history_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">History Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- History -->
 
     <!-- Axios -->
     <div class="container d-block pt-5">
