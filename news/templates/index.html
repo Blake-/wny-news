@@ -183,6 +183,39 @@
     <!-- History -->
 
 
+    <!-- Axios -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://axios.com" target="_blank" class="text-decoration-none text-success">Axios</a>: </h2>
+        {% if axios_news %}
+            {% for value in axios_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">History Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Axios -->
+
+    <!-- The Verge -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://theverge.com/" target="_blank" class="text-decoration-none text-success">The Verge</a>: </h2>
+        {% if theverge_news %}
+            {% for value in theverge_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">The Verge Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- The Verge -->
 
 
 
@@ -279,6 +312,24 @@
     <!-- WBFO -->
 
 
+    <!-- spectrum -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://spectrumlocalnews.com/nys/buffalo" target="_blank" class="text-decoration-none text-success">Spectrum Buffalo</a>: </h2>
+        {% if spectrum_news %}
+            {% for value in spectrum_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">WBFO failed!</p>
+        {% endif %}
+    </div>
+    <!-- Spectrum -->
+
+
     <!-- Niagara Falls News -->
     <div class="container d-block pt-5">
       <h2><a href="https://www.niagara-gazette.com/" target="_blank" class="text-decoration-none text-success">Niagara Gazette</a>: </h2>
@@ -349,41 +400,6 @@
         {% endif %}
     </div>
     <!-- CNBC -->
-
-    <!-- Axios -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://axios.com" target="_blank" class="text-decoration-none text-success">Axios</a>: </h2>
-        {% if axios_news %}
-            {% for value in axios_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">History Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- Axios -->
-
-    <!-- The Verge -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://theverge.com/" target="_blank" class="text-decoration-none text-success">The Verge</a>: </h2>
-        {% if theverge_news %}
-            {% for value in theverge_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">The Verge Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- The Verge -->
-
 
     </div>
     </div>
