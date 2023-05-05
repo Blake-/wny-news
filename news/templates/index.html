@@ -210,6 +210,23 @@
     </div>
     <!-- WGRZ Channel 2 News -->
 
+    <!-- WKBW Channel 7 News -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://wkbw.com" target="_blank" class="text-decoration-none text-success">WKBW</a>: </h2>
+        {% if wkbw_news %}
+            {% for value in wkbw_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- WKBW Channel 7 News -->
+
     <!-- Reddit Buffalo -->
     <div class="container d-block pt-5">
       <h2><a href="https://reddit.com/r/buffalo" target="_blank" class="text-decoration-none text-success">Reddit Buffalo</a>: </h2>
