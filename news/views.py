@@ -55,8 +55,6 @@ articles = soup.find_all('h3', class_='tnt-headline')
 for article in articles[:6]:
  title = article.find('a').text.strip().replace("\n", "")
  url = article.find('a').get('href')
-# print(url)
-# print(title)
  n_context = {
   'title': title,
   'url': url,
@@ -73,8 +71,6 @@ wkbw_news = []
 for article in article_blocks[:6]:
     title = article.find("h3", class_="ListItem-title").text.strip()
     url = article.find("a")["href"]
-    print(title)
-    print(url)
     kb_context = {
      'title': title,
      'url': url,
@@ -145,28 +141,6 @@ for article in articles[:6]:
 # rochester_news.append(rochester_context)
 
 
-#url = "https://www.nytimes.com/"
-#response = requests.get(url)
-#soup = BeautifulSoup(response.content, "html.parser")
-#nytimes_news = []
-#story_wrappers = soup.find_all("section", {"class": "story-wrapper"})
-#for story_wrapper in story_wrappers[:6]:
-#    headline_tag = story_wrapper.find("h3", {"class": "indicate-hover"})
-#    if headline_tag is not None:
-#        headline = headline_tag.text.strip()
-#        article_link = story_wrapper.find("a")
-#        if article_link is not None:
-#            article_link = article_link["href"]
-#            nytimes_context = {
-#             'headline': headline,
-#             'article_link': article_link,
-#            }
-#            print(headline)
-#            print(article_link)
-#            nytimes_news.append(nytimes_context)
-
-
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -183,7 +157,6 @@ for pre_element in pre_elements:
         result = result.replace('-- Changed Discussion --', '')
         result = result.replace('-- End Changed Discussion --', '')
         weather = result
-#        print(result.strip())
         break
 else:
     print('No weather found.')
@@ -218,7 +191,6 @@ rochester_news = []
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
-#    print(title)
     rochester_context = {
      'title': title,
      'url': url,
@@ -231,7 +203,6 @@ nytimes_news = []
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
-#    print(title)
     nytimes_context = {
      'title': title,
      'url': url,
@@ -244,19 +215,20 @@ toronto_news = []
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
-#    print(title)
     toronto_context = {
      'title': title,
      'url': url,
     }
     toronto_news.append(toronto_context)
 
-history = "http://news.bbc.co.uk/rss/on_this_day/front_page/rss.xml"
+history = "https://buffalostreets.com/feed/"
 feed = feedparser.parse(history)
 history_news = []
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
+    print(title)
+    print(url)
     history_context = {
      'title': title,
      'url': url,
@@ -305,7 +277,6 @@ feed = feedparser.parse(artvoice)
 artvoice_news = []
 for entry in feed.entries[:6]:
     title = entry.title
-#    print(title)
     url = entry.link
     artvoice_context = {
      'title': title,
@@ -319,7 +290,6 @@ feed = feedparser.parse(wbfo)
 wbfo_news = []
 for entry in feed.entries[:6]:
     title = entry.title
-#    print(title)
     url = entry.link
     wbfo_context = {
      'title': title,
@@ -333,7 +303,6 @@ feed = feedparser.parse(wivb)
 wivb_news = []
 for entry in feed.entries[:6]:
     title = entry.title
-#    print(title)
     url = entry.link
     wivb_context = {
      'title': title,
@@ -346,7 +315,6 @@ feed = feedparser.parse(spectrum)
 spectrum_news = []
 for entry in feed.entries[:6]:
     title = entry.title
-    print(title)
     url = entry.link
     spectrum_context = {
      'title': title,
