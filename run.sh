@@ -6,7 +6,7 @@ cd /Users/blake/projects/newsaggregator
 
 /usr/bin/nohup /opt/homebrew/bin/python3 manage.py runserver --noreload &
 
-/bin/sleep 35
+/bin/sleep 45
 
 /opt/homebrew/bin/wget -m -k -p -nH -P docs  http://127.0.0.1:8000/
 
