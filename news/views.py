@@ -39,6 +39,7 @@ articles = soup.find_all('h3', class_='tnt-headline')
 for article in articles[:6]:
  title = article.find('a').text.strip().replace("\n", "")
  url = article.find('a').get('href')
+# print(url)
  b_context = {
   'title': title,
   'url': url,
@@ -227,8 +228,8 @@ history_news = []
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
-    print(title)
-    print(url)
+#    print(title)
+#    print(url)
     history_context = {
      'title': title,
      'url': url,
