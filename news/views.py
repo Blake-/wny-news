@@ -323,8 +323,8 @@ for entry in feed.entries[:6]:
     }
     spectrum_news.append(spectrum_context)
 
-cybers = "https://news.google.com/rss/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREl5ZUY4U0FtVnVLQUFQAQ?hl=en-US&gl=US&ceid=US%3Aen&oc=11"
-feed = feedparser.parse(cybers)
+cyber = "https://news.google.com/rss/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREl5ZUY4U0FtVnVLQUFQAQ?hl=en-US&gl=US&ceid=US%3Aen&oc=11"
+feed = feedparser.parse(cyber)
 cyber_news = []
 for entry in feed.entries[:6]:
     title = entry.title

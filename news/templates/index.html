@@ -16,7 +16,7 @@
         <div class="container text-white">
             <h1 class="display-4 text-center">WNY News Headlines</h1>
             <br>
-            <p class="lead text-center">Last Updated {% now "F jS, Y at H:i" %}</p>
+            <p class="lead text-center">Last Updated {% now "F jS, H:i Y" %}</p>
             <p class="lead text-center">Sunrise: {{ sunrise }} | Sunset: {{ sunset }}</p>
             <p class="lead text-center"><a href="https://forecast.weather.gov/MapClick.php?CityName=East+Amherst&state=NY&site=BUF&lat=43.0408&lon=-78.7005"  style="color: #ffffff"">Weather Forecast</a>: {{ weather }}</p>
         </div>
@@ -411,7 +411,7 @@
 
     <!-- Cyber Security -->
     <div class="container d-block pt-5">
-      <h2><a href="https://https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREl5ZUY4U0FtVnVLQUFQAQ?ceid=US:en&oc=3" target="_blank" class="text-decoration-none text-success">Cyber Security Headlines</a>: </h2>
+      <h2><a href="https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREl5ZUY4U0FtVnVLQUFQAQ?ceid=US:en&oc=3" target="_blank" class="text-decoration-none text-success">Cyber Security Headlines</a>: </h2>
         {% if cyber_news %}
             {% for value in cyber_news %}
                 <div class="d-flex">
