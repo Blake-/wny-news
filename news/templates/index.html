@@ -408,13 +408,23 @@
 
       <!---------- Right Column ---------->
 
-<!-- Empty For Now -->
 
-
-<!-- Empty For Now -->
-
-
-
+    <!-- Cyber Security -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREl5ZUY4U0FtVnVLQUFQAQ?ceid=US:en&oc=3" target="_blank" class="text-decoration-none text-success">Cyber Security Headlines</a>: </h2>
+        {% if cyber_news %}
+            {% for value in cyber_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Cyber Sec Headlines Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Cyber Security -->
 
     <!-- Axios -->
     <div class="container d-block pt-5">
