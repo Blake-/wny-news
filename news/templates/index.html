@@ -74,7 +74,7 @@
                 </div>
             {% endfor %}
         {% else %}
-            <p class="lead">Toronto Barfed! Something broke!</p>
+            <p class="lead">Buffalo Rising Barfed! Something broke!</p>
         {% endif %}
     </div>
     <!-- Buffalo Rising -->
@@ -160,11 +160,27 @@
                 </div>
             {% endfor %}
         {% else %}
-            <p class="lead">Toronto Barfed! Something broke!</p>
+            <p class="lead">Toronto Star Failed! Something broke!</p>
         {% endif %}
     </div>
     <!-- Toronto Star -->
 
+    <!-- History -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://buffalostreets.com/" target="_blank" class="text-decoration-none text-success">Discovering Buffalo, One Street at a Time</a>: </h2>
+        {% if history_news %}
+            {% for value in history_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">History Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- History -->
 
       <!---------- Left Column Ends Here ---------->
 
@@ -392,23 +408,12 @@
 
       <!---------- Right Column ---------->
 
+<!-- Empty For Now -->
 
-    <!-- History -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://buffalostreets.com/" target="_blank" class="text-decoration-none text-success">Discovering Buffalo, One Street at a Time</a>: </h2>
-        {% if history_news %}
-            {% for value in history_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">History Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- History -->
+
+<!-- Empty For Now -->
+
+
 
 
     <!-- Axios -->
