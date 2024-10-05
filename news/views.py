@@ -126,20 +126,20 @@ for article in articles[:6]:
  }
  batavia_news.append(batavia_context)
 
-#rochester = 'https://www.democratandchronicle.com/'
-#response = requests.get(rochester)
-#html_content = response.content
-#soup = BeautifulSoup(html_content, 'html.parser')
-#rochester_news = []
-#articles = soup.find_all('div', class_='gnt_m gnt_m_lb')
-#for article in articles[:6]:
-# title = article.find('a').text
-# url = article.find('a').get('href')
-# rochester_context = {
-#  'title': title,
-#  'url': url,
-# }
-# rochester_news.append(rochester_context)
+rochester = 'https://spectrumlocalnews.com/'
+response = requests.get(rochester)
+html_content = response.content
+soup = BeautifulSoup(html_content, 'html.parser')
+rochester_news = []
+articles = soup.find_all('div', class_='gnt_m gnt_m_lb')
+for article in articles[:6]:
+ title = article.find('a').text
+ url = article.find('a').get('href')
+ rochester_context = {
+  'title': title,
+  'url': url,
+ }
+ rochester_news.append(rochester_context)
 
 
 import requests
@@ -186,7 +186,7 @@ for entry in feed.entries[:6]:
     }
     biz_news.append(biz_context)
 
-rochester = "http://rssfeeds.democratandchronicle.com/Democratandchronicle/BreakingNewsAndTopStories"
+rochester = "https://spectrumlocalnews.com/services/contentfeed.nys%7crochester%7cnews.landing.rss"
 feed = feedparser.parse(rochester)
 rochester_news = []
 for entry in feed.entries[:6]:

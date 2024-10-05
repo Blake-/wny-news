@@ -3,8 +3,9 @@
 /usr/bin/pkill -f runserver
 
 cd /Users/blake/projects/newsaggregator
-
-/usr/bin/nohup /opt/homebrew/bin/python3 manage.py runserver --noreload &
+virtualenv venv
+source venv/bin/activate
+/usr/bin/nohup python3 manage.py runserver --noreload &
 
 /bin/sleep 45
 
