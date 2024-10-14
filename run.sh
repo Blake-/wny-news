@@ -7,7 +7,7 @@ virtualenv venv
 source venv/bin/activate
 /usr/bin/nohup python3 manage.py runserver --noreload &
 
-/bin/sleep 45
+/bin/sleep 120
 
 /opt/homebrew/bin/wget -m -k -p -nH -P docs  http://127.0.0.1:8000/
 
