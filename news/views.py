@@ -286,7 +286,7 @@ for entry in feed.entries[:6]:
     artvoice_news.append(artvoice_context)
 
 
-wbfo = "https://www.wbfo.org/tags/regional-news.rss"
+wbfo = "https://www.wbfo.org/local.rss"
 feed = feedparser.parse(wbfo)
 wbfo_news = []
 for entry in feed.entries[:6]:
