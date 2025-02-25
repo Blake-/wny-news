@@ -338,25 +338,37 @@ for entry in feed.entries[:6]:
 
 ## move everything fetching RSS?
 
+import requests
+from bs4 import BeautifulSoup
+import feedparser
+
 url = 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258'
 response = requests.get(url)
 feed = feedparser.parse(response.content)
+
 cnbc_news = []
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
-    # Fetch the full article page to extract additional information
-    article_response = requests.get(url)
+    
+    # Fetch full article page
+    article_response = requests.get(url, headers=headers)
     article_soup = BeautifulSoup(article_response.content, "html.parser")
-    summary = article_soup.find('div', {'class': 'group'}).text.strip()
+
+    # Find summary safely
+    summary_div = article_soup.find('div', class_='ArticleBody')
+    summary = ' '.join([p.text.strip() for p in summary_div.find_all('p')]) if summary_div else "No summary available"
 
     cnbc_context = {
         'title': title,
         'url': url,
+        'summary': summary
     }
     cnbc_news.append(cnbc_context)
 
-
+print(cnbc_news)
 
 
 
