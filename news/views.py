@@ -210,7 +210,7 @@ for entry in feed.entries[:6]:
     }
     nytimes_news.append(nytimes_context)
 
-toronto = "http://www.thestar.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc&k%5B%5D=%23topstory"
+toronto = "https://www.thestar.com/search/?f=rss&t=article&bl=2827101&l=20"
 feed = feedparser.parse(toronto)
 toronto_news = []
 for entry in feed.entries[:6]:
