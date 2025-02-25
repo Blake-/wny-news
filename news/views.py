@@ -162,7 +162,7 @@ for pre_element in pre_elements:
 else:
     print('No weather found.')
 
-reddit = "https://www.reddit.com/r/Buffalo/rising/.rss"
+reddit = "https://www.reddit.com/r/Buffalo/.rss"
 feed = feedparser.parse(reddit)
 reddit_news = []
 for entry in feed.entries[:6]:
