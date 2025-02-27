@@ -174,18 +174,6 @@ for entry in feed.entries[:6]:
     }
     reddit_news.append(reddit_context)
 
-visitbuffaloniagara = "https://www.visitbuffaloniagara.com/feed/"
-feed = feedparser.parse(visitbuffaloniagara)
-visitbuffaloniagara_news = []
-for entry in feed.entries[:6]:
-    title = entry.title
-    url = entry.link
-    visitbuffaloniagara_context = {
-     'title': title,
-     'url': url,
-    }
-    visitbuffaloniagara_news.append(visitbuffaloniagara_context)
-
 bizjournals = "http://feeds.bizjournals.com/bizj_buffalo"
 feed = feedparser.parse(bizjournals)
 biz_news = []
@@ -222,17 +210,42 @@ for entry in feed.entries[:6]:
     }
     nytimes_news.append(nytimes_context)
 
+#toronto = "https://www.thestar.com/search/?f=rss&t=article&bl=2827101&l=20"
+#feed = feedparser.parse(toronto)
+#toronto_news = []
+#for entry in feed.entries[:6]:
+#    title = entry.title
+#    url = entry.link
+#    toronto_context = {
+#     'title': title,
+#     'url': url,
+#    }
+#    toronto_news.append(toronto_context)
+#print(toronto_news)
+
+import feedparser
+
 toronto = "https://www.thestar.com/search/?f=rss&t=article&bl=2827101&l=20"
 feed = feedparser.parse(toronto)
+
+# Debugging output
+print("Feed Status:", feed.get("status", "Unknown"))
+print("Number of Entries:", len(feed.entries))
+
+# Extract news if entries exist
 toronto_news = []
 for entry in feed.entries[:6]:
-    title = entry.title
-    url = entry.link
-    toronto_context = {
-     'title': title,
-     'url': url,
-    }
-    toronto_news.append(toronto_context)
+    title = entry.get("title", "No title")
+    url = entry.get("link", "No link")
+
+    toronto_news.append({
+        'title': title,
+        'url': url,
+    })
+
+print("Toronto News:", toronto_news)
+
+
 
 history = "https://buffalostreets.com/feed/"
 feed = feedparser.parse(history)
@@ -347,6 +360,18 @@ for entry in feed.entries[:6]:
     }
     cyber_news.append(cyber_context)
 
+visitbuffaloniagara = "https://www.visitbuffaloniagara.com/feed/"
+feed = feedparser.parse(visitbuffaloniagara)
+visitbuffaloniagara_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    visitbuffaloniagara_context = {
+     'title': title,
+     'url': url,
+    }
+    visitbuffaloniagara_news.append(visitbuffaloniagara_context)
+
 
 ## move everything fetching RSS?
 
@@ -380,10 +405,6 @@ for entry in feed.entries[:6]:
     }
     cnbc_news.append(cnbc_context)
 
-print(cnbc_news)
-
-
-
 
 ###############################
 
@@ -409,8 +430,4 @@ sset = sunset.strftime('%-I:%M')
 
 
 def index(request):
-return render(request, 'index.html', {'visitbuffaloniagara_news':visitbuffaloniagara_news})
-# return render(request, 'index.html', {'cyber_news':cyber_news, 'spectrum_news':spectrum_news, 'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
-
-
-
+ return render(request, 'index.html', {'visitbuffaloniagara_news':visitbuffaloniagara_news, 'cyber_news':cyber_news, 'spectrum_news':spectrum_news, 'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})

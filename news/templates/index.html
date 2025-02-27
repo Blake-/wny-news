@@ -182,22 +182,6 @@
     </div>
     <!-- History -->
 
-    <!-- visitbuffaloniagara -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://www.visitbuffaloniagara.com/" target="_blank" class="text-decoration-none text-success">Visit Buffalo Niagara</a>: </h2>
-        {% if visitbuffaloniagara_news %}
-            {% for value in visitbuffaloniagara_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">visitbuffaloniagara Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- visitbuffaloniagara -->
 
       <!---------- Left Column Ends Here ---------->
 
@@ -361,6 +345,23 @@
         {% endif %}
     </div>
     <!-- Rochester News -->
+
+    <!-- visitbuffaloniagara -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.visitbuffaloniagara.com/" target="_blank" class="text-decoration-none text-success">Visit Buffalo Niagara</a>: </h2>
+        {% if visitbuffaloniagara_news %}
+            {% for value in visitbuffaloniagara_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">visitbuffaloniagara Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- visitbuffaloniagara -->
 
 
 
