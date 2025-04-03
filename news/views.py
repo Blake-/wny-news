@@ -165,6 +165,8 @@ else:
 reddit = "https://www.reddit.com/r/Buffalo/.rss"
 feed = feedparser.parse(reddit)
 reddit_news = []
+print("Feed Status:", feed.get("status", "Unknown"))
+print("Number of Entries:", len(feed.entries))
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
@@ -229,8 +231,8 @@ toronto = "https://www.thestar.com/search/?f=rss&t=article&bl=2827101&l=20"
 feed = feedparser.parse(toronto)
 
 # Debugging output
-print("Feed Status:", feed.get("status", "Unknown"))
-print("Number of Entries:", len(feed.entries))
+#print("Feed Status:", feed.get("status", "Unknown"))
+#print("Number of Entries:", len(feed.entries))
 
 # Extract news if entries exist
 toronto_news = []
