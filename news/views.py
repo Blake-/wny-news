@@ -162,11 +162,12 @@ for pre_element in pre_elements:
 else:
     print('No weather found.')
 
-reddit = "https://www.reddit.com/r/Buffalo/.rss"
+reddit = "https://old.reddit.com/r/Buffalo/.rss"
+print("REDDIT IS", reddit)
 feed = feedparser.parse(reddit)
 reddit_news = []
-print("Feed Status:", feed.get("status", "Unknown"))
-print("Number of Entries:", len(feed.entries))
+print("Reddit Feed Status:", feed.get("status", "Unknown"))
+print("Reddit Number of Entries:", len(feed.entries))
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
@@ -175,6 +176,8 @@ for entry in feed.entries[:6]:
      'url': url,
     }
     reddit_news.append(reddit_context)
+print("REDDUT News:", reddit_news)
+
 
 bizjournals = "http://feeds.bizjournals.com/bizj_buffalo"
 feed = feedparser.parse(bizjournals)
