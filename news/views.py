@@ -162,21 +162,36 @@ for pre_element in pre_elements:
 else:
     print('No weather found.')
 
-reddit = "https://old.reddit.com/r/Buffalo/.rss"
+import requests
+import feedparser
+
+reddit = "https://www.reddit.com/r/Buffalo.rss"
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
+
 print("REDDIT IS", reddit)
-feed = feedparser.parse(reddit)
+
+# Make request with headers
+response = requests.get(reddit, headers=headers)
+
+# Parse the content with feedparser
+feed = feedparser.parse(response.content)
+
 reddit_news = []
-print("Reddit Feed Status:", feed.get("status", "Unknown"))
+print("Reddit Feed Status:", response.status_code)
 print("Reddit Number of Entries:", len(feed.entries))
+
 for entry in feed.entries[:6]:
     title = entry.title
     url = entry.link
     reddit_context = {
-     'title': title,
-     'url': url,
+        'title': title,
+        'url': url,
     }
     reddit_news.append(reddit_context)
-print("REDDUT News:", reddit_news)
+
+print("REDDIT News:", reddit_news)
 
 
 bizjournals = "http://feeds.bizjournals.com/bizj_buffalo"
