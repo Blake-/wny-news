@@ -152,8 +152,8 @@ soup = BeautifulSoup(response.content, 'html.parser')
 weather = ""
 pre_elements = soup.find_all('pre')
 for pre_element in pre_elements:
-    if '.SYNOPSIS...' in pre_element.text:
-        start_index = pre_element.text.index('.SYNOPSIS...') + len('.SYNOPSIS...')
+    if '.DISCUSSION...' in pre_element.text:
+        start_index = pre_element.text.index('.DISCUSSION...') + len('.DISCUSSION...')
         end_index = pre_element.text.index('&&')
         result = pre_element.text[start_index:end_index].strip()
         result = result.replace('-- Changed Discussion --', '')
