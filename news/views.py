@@ -149,7 +149,7 @@ url = 'https://forecast.weather.gov/product.php?site=BUF&issuedby=BUF&product=AF
 response = requests.get(url)
 soup = BeautifulSoup(response.content, 'html.parser')
 
-weather = ""
+#weather = ""
 pre_elements = soup.find_all('pre')
 for pre_element in pre_elements:
     if '.DISCUSSION...' in pre_element.text:
