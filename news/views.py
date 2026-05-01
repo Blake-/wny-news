@@ -142,26 +142,49 @@ for article in articles[:6]:
  rochester_news.append(rochester_context)
 
 
+#import requests
+#from bs4 import BeautifulSoup
+#url = 'https://forecast.weather.gov/product.php?site=BUF&issuedby=BUF&product=AFD&format=TXT&version=1&glossary=0&highlight=off'
+#response = requests.get(url)
+#soup = BeautifulSoup(response.content, 'html.parser')
+#weather = ""
+#pre_elements = soup.find_all('pre')
+#for pre_element in pre_elements:
+#    if '.DISCUSSION...' in pre_element.text:
+#        start_index = pre_element.text.index('.DISCUSSION...') + len('.DISCUSSION...')
+#       end_index = pre_element.text.index('&&')
+#        result = pre_element.text[start_index:end_index].strip()
+#        result = result.replace('-- Changed Discussion --', '')
+#        result = result.replace('-- End Changed Discussion --', '')
+#        weather = result
+#        break
+#else:
+#    print('No weather found.')
+
 import requests
 from bs4 import BeautifulSoup
 
-url = 'https://forecast.weather.gov/product.php?site=BUF&issuedby=BUF&product=AFD&format=TXT&version=1&glossary=0&highlight=off'
-response = requests.get(url)
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+}
+
+url = 'https://forecast.weather.gov/MapClick.php?lat=43.0408&lon=-78.7005&unit=0&lg=english&FcstType=text&TextType=1'
+response = requests.get(url, headers=headers)
 soup = BeautifulSoup(response.content, 'html.parser')
 
-#weather = ""
-pre_elements = soup.find_all('pre')
-for pre_element in pre_elements:
-    if '.DISCUSSION...' in pre_element.text:
-        start_index = pre_element.text.index('.DISCUSSION...') + len('.DISCUSSION...')
-        end_index = pre_element.text.index('&&')
-        result = pre_element.text[start_index:end_index].strip()
-        result = result.replace('-- Changed Discussion --', '')
-        result = result.replace('-- End Changed Discussion --', '')
-        weather = result
-        break
+# Find the <b> tag whose text is "Today:"
+today_tag = soup.find('b', string=lambda s: s and s.strip() == 'Today:')
+
+if today_tag:
+    today_text = today_tag.next_sibling
+    if today_text:
+        weather = str(today_text).strip()
+        print(weather)
+    else:
+        print('No text found after Today: tag.')
 else:
-    print('No weather found.')
+    print('No "Today:" section found.')
+
 
 import requests
 import feedparser
