@@ -94,15 +94,12 @@ for article in articles[:6]:
  }
  wgrz_news.append(grztv_context)
 
-olean = 'https://www.oleantimesherald.com/'
-response = requests.get(olean)
-html_content = response.content
-soup = BeautifulSoup(html_content, 'html.parser')
+olean = 'https://www.oleantimesherald.com/feed/'
+feed = feedparser.parse(olean)
 olean_news = []
-articles = soup.find_all('h3', class_='tnt-headline headline')
-for article in articles[:6]:
- title = article.find('a').get('aria-label')
- url = article.find('a').get('href')
+for entry in feed.entries[:6]:
+ title = entry.title
+ url = entry.link
  o_context = {
   'title': title,
   'url': url,
@@ -434,7 +431,7 @@ for entry in feed.entries[:6]:
     }
     spectrum_news.append(spectrum_context)
 
-cyber = "https://news.google.com/rss/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREl5ZUY4U0FtVnVLQUFQAQ?hl=en-US&gl=US&ceid=US%3Aen&oc=11"
+cyber = "https://news.ycombinator.com/rss"
 feed = feedparser.parse(cyber)
 cyber_news = []
 for entry in feed.entries[:6]:

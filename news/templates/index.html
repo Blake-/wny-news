@@ -216,24 +216,6 @@
     </div>
     <!-- History -->
 
-    <!-- investigative post -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://www.investigativepost.org/" target="_blank" class="text-decoration-none text-success">Investigative Post</a>: </h2>
-        {% if investigativepost_news %}
-            {% for value in investigativepost_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">Investigative Post Barfed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- investigative post -->
-
-
       <!---------- Left Column Ends Here ---------->
 
     </div>
@@ -370,7 +352,7 @@
             {% for value in olean_news %}
                 <div class="d-flex">
                  <h5 class="card-title">
-                  <li><a href="https://www.oleantimesherald.com{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
                  </h5>
                 </div>
             {% endfor %}
@@ -379,6 +361,23 @@
         {% endif %}
     </div>
     <!-- Olean News -->
+
+    <!-- investigative post -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.investigativepost.org/" target="_blank" class="text-decoration-none text-success">Investigative Post</a>: </h2>
+        {% if investigativepost_news %}
+            {% for value in investigativepost_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Investigative Post Barfed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- investigative post -->
 
     <!-- Rochester News -->
     <div class="container d-block pt-5">
@@ -478,9 +477,9 @@
       <!---------- Right Column ---------->
 
 
-    <!-- Cyber Security -->
+    <!-- Hacker News -->
     <div class="container d-block pt-5">
-      <h2><a href="https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREl5ZUY4U0FtVnVLQUFQAQ?ceid=US:en&oc=3" target="_blank" class="text-decoration-none text-success">Cyber Security Headlines</a>: </h2>
+      <h2><a href="https://news.ycombinator.com/" target="_blank" class="text-decoration-none text-success">Hacker News</a>: </h2>
         {% if cyber_news %}
             {% for value in cyber_news %}
                 <div class="d-flex">
@@ -490,10 +489,10 @@
                 </div>
             {% endfor %}
         {% else %}
-            <p class="lead">Cyber Sec Headlines Barfed! Something broke!</p>
+            <p class="lead">Hacker News Barfed! Something broke!</p>
         {% endif %}
     </div>
-    <!-- Cyber Security -->
+    <!-- Hacker News -->
 
     <!-- Axios -->
     <div class="container d-block pt-5">
