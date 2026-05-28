@@ -30,16 +30,14 @@ for article in articles[:6]:
  jamestown_news.append(j_context)
 
 #def index(request):
-buffalo = 'https://www.buffalonews.com/'
-response = requests.get(buffalo)
-html_content = response.content
-soup = BeautifulSoup(html_content, 'html.parser')
+buffalo = 'https://buffalonews.com/search/?f=rss&t=article&c=news/local&l=50&s=start_time&sd=desc'
 buffalo_news = []
-articles = soup.find_all('h3', class_='tnt-headline')
-for article in articles[:6]:
- title = article.find('a').text.strip().replace("\n", "")
- url = article.find('a').get('href')
-# print(url)
+feed = feedparser.parse(buffalo, request_headers={
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+})
+for entry in feed.entries[:6]:
+ title = entry.title
+ url = entry.link
  b_context = {
   'title': title,
   'url': url,
@@ -218,17 +216,21 @@ for entry in feed.entries[:6]:
 print("REDDIT News:", reddit_news)
 
 
-bizjournals = "http://feeds.bizjournals.com/bizj_buffalo"
+bizjournals = "https://news.google.com/rss/search?q=site%3Abizjournals.com%2Fbuffalo%2Fnews%20Buffalo%20Business%20First&hl=en-US&gl=US&ceid=US%3Aen"
 feed = feedparser.parse(bizjournals)
 biz_news = []
-for entry in feed.entries[:6]:
-    title = entry.title
+for entry in feed.entries:
+    title = entry.title.replace(" - Buffalo Business First", "").replace(" - The Business Journals", "")
     url = entry.link
+    if title == "Buffalo News":
+        continue
     biz_context = {
      'title': title,
      'url': url,
     }
     biz_news.append(biz_context)
+    if len(biz_news) == 6:
+        break
 
 rochester = "https://spectrumlocalnews.com/services/contentfeed.nys%7crochester%7cnews.landing.rss"
 feed = feedparser.parse(rochester)
@@ -355,6 +357,32 @@ for entry in feed.entries[:6]:
      'url': url,
     }
     buffalorising_news.append(buffalorising_context)
+
+wnymedia = "https://wnymedia.net/feed/"
+feed = feedparser.parse(wnymedia)
+wnymedia_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    wnymedia_context = {
+     'title': title,
+     'url': url,
+    }
+    wnymedia_news.append(wnymedia_context)
+
+beenews = "https://www.beenews.com/search/?f=rss&t=article&l=6&s=start_time&sd=desc"
+feed = feedparser.parse(beenews, request_headers={
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+})
+beenews_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    beenews_context = {
+     'title': title,
+     'url': url,
+    }
+    beenews_news.append(beenews_context)
 
 artvoice = "https://artvoice.com/feed/"
 feed = feedparser.parse(artvoice)
@@ -488,4 +516,4 @@ sset = sunset.strftime('%-I:%M')
 
 
 def index(request):
- return render(request, 'index.html', {'investigativepost_news':investigativepost_news, 'visitbuffaloniagara_news':visitbuffaloniagara_news, 'cyber_news':cyber_news, 'spectrum_news':spectrum_news, 'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+ return render(request, 'index.html', {'investigativepost_news':investigativepost_news, 'visitbuffaloniagara_news':visitbuffaloniagara_news, 'cyber_news':cyber_news, 'spectrum_news':spectrum_news, 'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'beenews_news':beenews_news, 'wnymedia_news':wnymedia_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
