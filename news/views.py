@@ -322,7 +322,9 @@ for entry in feed.entries[:6]:
     salamanca_news.append(salamanca_context)
 
 lockport = "https://www.lockportjournal.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc"
-feed = feedparser.parse(lockport)
+feed = feedparser.parse(lockport, request_headers={
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+})
 lockport_news = []
 for entry in feed.entries[:6]:
     title = entry.title
