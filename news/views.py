@@ -174,6 +174,7 @@ soup = BeautifulSoup(response.content, 'html.parser')
 # Find the <b> tag whose text is "Today:"
 today_tag = soup.find('b', string=lambda s: s and s.strip() == 'Today:')
 
+weather = ""
 if today_tag:
     today_text = today_tag.next_sibling
     if today_text:
