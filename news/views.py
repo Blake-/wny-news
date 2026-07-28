@@ -297,6 +297,66 @@ print("Toronto News:", toronto_news)
 
 
 
+observertoday = "https://www.observertoday.com/feed/"
+feed = feedparser.parse(observertoday)
+observertoday_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    observertoday_context = {
+     'title': title,
+     'url': url,
+    }
+    observertoday_news.append(observertoday_context)
+
+salamanca = "https://www.salamancapress.com/feed/"
+feed = feedparser.parse(salamanca)
+salamanca_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    salamanca_context = {
+     'title': title,
+     'url': url,
+    }
+    salamanca_news.append(salamanca_context)
+
+lockport = "https://www.lockportjournal.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc"
+feed = feedparser.parse(lockport)
+lockport_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    lockport_context = {
+     'title': title,
+     'url': url,
+    }
+    lockport_news.append(lockport_context)
+
+rochesterbeacon = "https://rochesterbeacon.com/feed/"
+feed = feedparser.parse(rochesterbeacon)
+rochesterbeacon_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    rochesterbeacon_context = {
+     'title': title,
+     'url': url,
+    }
+    rochesterbeacon_news.append(rochesterbeacon_context)
+
+wxxi = "https://www.wxxinews.org/local-news.rss"
+feed = feedparser.parse(wxxi)
+wxxi_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    wxxi_context = {
+     'title': title,
+     'url': url,
+    }
+    wxxi_news.append(wxxi_context)
+
 history = "https://buffalostreets.com/feed/"
 feed = feedparser.parse(history)
 history_news = []
@@ -508,4 +568,4 @@ sset = sunset.strftime('%-I:%M')
 
 
 def index(request):
- return render(request, 'index.html', {'investigativepost_news':investigativepost_news, 'cyber_news':cyber_news, 'spectrum_news':spectrum_news, 'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'beenews_news':beenews_news, 'wnymedia_news':wnymedia_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news})
+ return render(request, 'index.html', {'investigativepost_news':investigativepost_news, 'cyber_news':cyber_news, 'spectrum_news':spectrum_news, 'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'beenews_news':beenews_news, 'wnymedia_news':wnymedia_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news, 'observertoday_news': observertoday_news, 'salamanca_news': salamanca_news, 'lockport_news': lockport_news, 'rochesterbeacon_news': rochesterbeacon_news, 'wxxi_news': wxxi_news})

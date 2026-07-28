@@ -182,23 +182,6 @@
     </div>
     <!-- NY Times News -->
 
-    <!-- Toronto Star -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://www.thestar.com/" target="_blank" class="text-decoration-none text-success">The Toronto Star</a>: </h2>
-        {% if toronto_news %}
-            {% for value in toronto_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">Toronto Star Failed! Something broke!</p>
-        {% endif %}
-    </div>
-    <!-- Toronto Star -->
-
     <!-- History -->
     <div class="container d-block pt-5">
       <h2><a href="https://buffalostreets.com/" target="_blank" class="text-decoration-none text-success">Discovering Buffalo, One Street at a Time</a>: </h2>
@@ -215,6 +198,57 @@
         {% endif %}
     </div>
     <!-- History -->
+
+    <!-- Observer Today -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.observertoday.com/" target="_blank" class="text-decoration-none text-success">Observer Today (Dunkirk)</a>: </h2>
+        {% if observertoday_news %}
+            {% for value in observertoday_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Observer Today -->
+
+    <!-- Salamanca Press -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.salamancapress.com/" target="_blank" class="text-decoration-none text-success">Salamanca Press</a>: </h2>
+        {% if salamanca_news %}
+            {% for value in salamanca_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Salamanca Press -->
+
+    <!-- Lockport Union-Sun & Journal -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.lockportjournal.com/" target="_blank" class="text-decoration-none text-success">Lockport Union-Sun & Journal</a>: </h2>
+        {% if lockport_news %}
+            {% for value in lockport_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Lockport Union-Sun & Journal -->
 
       <!---------- Left Column Ends Here ---------->
 
@@ -396,7 +430,56 @@
     </div>
     <!-- Rochester News -->
 
+    <!-- Toronto Star -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.thestar.com/" target="_blank" class="text-decoration-none text-success">The Toronto Star</a>: </h2>
+        {% if toronto_news %}
+            {% for value in toronto_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Toronto Star Failed! Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Toronto Star -->
 
+    <!-- Rochester Beacon -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://rochesterbeacon.com/" target="_blank" class="text-decoration-none text-success">Rochester Beacon</a>: </h2>
+        {% if rochesterbeacon_news %}
+            {% for value in rochesterbeacon_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- Rochester Beacon -->
+
+    <!-- WXXI News -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.wxxinews.org/" target="_blank" class="text-decoration-none text-success">WXXI News</a>: </h2>
+        {% if wxxi_news %}
+            {% for value in wxxi_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something broke!</p>
+        {% endif %}
+    </div>
+    <!-- WXXI News -->
 
 
 
