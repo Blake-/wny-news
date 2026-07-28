@@ -20,14 +20,18 @@ html_content = response.content
 soup = BeautifulSoup(html_content, 'html.parser')
 jamestown_news = []
 articles = soup.find_all('article')
-for article in articles[:6]:
- title = article.find('h1').text
- url = article.find('a').get('href')
+for article in articles:
+ heading = article.find('h1') or article.find('h3')
+ a = article.find('a')
+ if not heading or not a:
+  continue
  j_context = {
-  'title': title,
-  'url': url,
+  'title': heading.text,
+  'url': a.get('href'),
  }
  jamestown_news.append(j_context)
+ if len(jamestown_news) == 6:
+  break
 
 #def index(request):
 buffalo = 'https://buffalonews.com/search/?f=rss&t=article&c=news/local&l=50&s=start_time&sd=desc'
