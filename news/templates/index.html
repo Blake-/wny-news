@@ -148,6 +148,23 @@
     </div>
     <!-- Batavia News -->
 
+    <!-- The Batavian -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.thebatavian.com/" target="_blank" class="text-decoration-none text-success">The Batavian</a>: </h2>
+        {% if thebatavian_news %}
+            {% for value in thebatavian_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something failed here last run.</p>
+        {% endif %}
+    </div>
+    <!-- The Batavian -->
+
     <!-- NYTimes News -->
     <div class="container d-block pt-5">
       <h2><a href="https://www.nytimes.com/section/nyregion" target="_blank" class="text-decoration-none text-success">NY Times - NY Region</a>: </h2>
@@ -232,6 +249,23 @@
         {% endif %}
     </div>
     <!-- Lockport Union-Sun & Journal -->
+
+    <!-- Orleans Hub -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://orleanshub.com/" target="_blank" class="text-decoration-none text-success">Orleans Hub</a>: </h2>
+        {% if orleanshub_news %}
+            {% for value in orleanshub_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something failed here last run.</p>
+        {% endif %}
+    </div>
+    <!-- Orleans Hub -->
 
       <!---------- Left Column Ends Here ---------->
 
@@ -361,6 +395,23 @@
     </div>
     <!-- Niagara Falls News -->
 
+    <!-- Niagara Falls Reporter -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://niagarafallsreporter.com/" target="_blank" class="text-decoration-none text-success">Niagara Falls Reporter</a>: </h2>
+        {% if niagarafallsreporter_news %}
+            {% for value in niagarafallsreporter_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something failed here last run.</p>
+        {% endif %}
+    </div>
+    <!-- Niagara Falls Reporter -->
+
 
     <!-- Olean News -->
     <div class="container d-block pt-5">
@@ -464,6 +515,22 @@
     </div>
     <!-- WXXI News -->
 
+    <!-- RochesterFirst -->
+    <div class="container d-block pt-5">
+      <h2><a href="https://www.rochesterfirst.com/" target="_blank" class="text-decoration-none text-success">RochesterFirst</a>: </h2>
+        {% if rochesterfirst_news %}
+            {% for value in rochesterfirst_news %}
+                <div class="d-flex">
+                 <h5 class="card-title">
+                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
+                 </h5>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Something failed here last run.</p>
+        {% endif %}
+    </div>
+    <!-- RochesterFirst -->
 
 
     </div>

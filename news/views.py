@@ -125,6 +125,18 @@ for article in articles[:6]:
  }
  batavia_news.append(batavia_context)
 
+thebatavian = "https://www.thebatavian.com/rss.xml"
+feed = feedparser.parse(thebatavian)
+thebatavian_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    thebatavian_context = {
+     'title': title,
+     'url': url,
+    }
+    thebatavian_news.append(thebatavian_context)
+
 rochester = 'https://spectrumlocalnews.com/'
 response = requests.get(rochester)
 html_content = response.content
@@ -335,6 +347,30 @@ for entry in feed.entries[:6]:
     }
     lockport_news.append(lockport_context)
 
+orleanshub = "https://orleanshub.com/feed/"
+feed = feedparser.parse(orleanshub)
+orleanshub_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    orleanshub_context = {
+     'title': title,
+     'url': url,
+    }
+    orleanshub_news.append(orleanshub_context)
+
+niagarafallsreporter = "https://niagarafallsreporter.com/feed/"
+feed = feedparser.parse(niagarafallsreporter)
+niagarafallsreporter_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    niagarafallsreporter_context = {
+     'title': title,
+     'url': url,
+    }
+    niagarafallsreporter_news.append(niagarafallsreporter_context)
+
 rochesterbeacon = "https://rochesterbeacon.com/feed/"
 feed = feedparser.parse(rochesterbeacon)
 rochesterbeacon_news = []
@@ -358,6 +394,18 @@ for entry in feed.entries[:6]:
      'url': url,
     }
     wxxi_news.append(wxxi_context)
+
+rochesterfirst = "https://www.rochesterfirst.com/feed/"
+feed = feedparser.parse(rochesterfirst)
+rochesterfirst_news = []
+for entry in feed.entries[:6]:
+    title = entry.title
+    url = entry.link
+    rochesterfirst_context = {
+     'title': title,
+     'url': url,
+    }
+    rochesterfirst_news.append(rochesterfirst_context)
 
 history = "https://buffalostreets.com/feed/"
 feed = feedparser.parse(history)
@@ -557,4 +605,4 @@ sset = sunset.strftime('%-I:%M')
 
 
 def index(request):
- return render(request, 'index.html', {'investigativepost_news':investigativepost_news, 'cyber_news':cyber_news, 'spectrum_news':spectrum_news, 'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'beenews_news':beenews_news, 'wnymedia_news':wnymedia_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news, 'observertoday_news': observertoday_news, 'salamanca_news': salamanca_news, 'lockport_news': lockport_news, 'rochesterbeacon_news': rochesterbeacon_news, 'wxxi_news': wxxi_news})
+ return render(request, 'index.html', {'investigativepost_news':investigativepost_news, 'cyber_news':cyber_news, 'spectrum_news':spectrum_news, 'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'beenews_news':beenews_news, 'wnymedia_news':wnymedia_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news, 'observertoday_news': observertoday_news, 'salamanca_news': salamanca_news, 'lockport_news': lockport_news, 'rochesterbeacon_news': rochesterbeacon_news, 'wxxi_news': wxxi_news, 'thebatavian_news': thebatavian_news, 'orleanshub_news': orleanshub_news, 'niagarafallsreporter_news': niagarafallsreporter_news, 'rochesterfirst_news': rochesterfirst_news})
