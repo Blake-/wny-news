@@ -450,19 +450,6 @@ for entry in feed.entries[:6]:
     }
     beenews_news.append(beenews_context)
 
-artvoice = "https://artvoice.com/feed/"
-feed = feedparser.parse(artvoice)
-artvoice_news = []
-for entry in feed.entries[:6]:
-    title = entry.title
-    url = entry.link
-    artvoice_context = {
-     'title': title,
-     'url': url,
-    }
-    artvoice_news.append(artvoice_context)
-
-
 wbfo = "https://www.wbfo.org/local.rss"
 feed = feedparser.parse(wbfo)
 wbfo_news = []
@@ -570,4 +557,4 @@ sset = sunset.strftime('%-I:%M')
 
 
 def index(request):
- return render(request, 'index.html', {'investigativepost_news':investigativepost_news, 'cyber_news':cyber_news, 'spectrum_news':spectrum_news, 'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'artvoice_news':artvoice_news, 'beenews_news':beenews_news, 'wnymedia_news':wnymedia_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news, 'observertoday_news': observertoday_news, 'salamanca_news': salamanca_news, 'lockport_news': lockport_news, 'rochesterbeacon_news': rochesterbeacon_news, 'wxxi_news': wxxi_news})
+ return render(request, 'index.html', {'investigativepost_news':investigativepost_news, 'cyber_news':cyber_news, 'spectrum_news':spectrum_news, 'wkbw_news':wkbw_news, 'wivb_news':wivb_news, 'wbfo_news':wbfo_news, 'beenews_news':beenews_news, 'wnymedia_news':wnymedia_news, 'buffalorising_news':buffalorising_news, 'theverge_news':theverge_news, 'axios_news':axios_news, 'history_news':history_news, 'toronto_news':toronto_news, 'cnbc_news':cnbc_news, 'biz_news':biz_news, 'reddit_news':reddit_news, 'weather':weather, 'sunrise':srise, 'sunset':sset, 'jamestown_news':jamestown_news, 'buffalo_news': buffalo_news, 'ni_news': ni_news, 'wgrz_news': wgrz_news, 'olean_news': olean_news, 'batavia_news': batavia_news, 'rochester_news':rochester_news, 'nytimes_news': nytimes_news, 'observertoday_news': observertoday_news, 'salamanca_news': salamanca_news, 'lockport_news': lockport_news, 'rochesterbeacon_news': rochesterbeacon_news, 'wxxi_news': wxxi_news})

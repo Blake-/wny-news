@@ -113,23 +113,6 @@
     </div>
     <!-- Bee News -->
 
-    <!-- ArtVoice -->
-    <div class="container d-block pt-5">
-      <h2><a href="https://www.artvoice.com/" target="_blank" class="text-decoration-none text-success">Art Voice</a>: </h2>
-        {% if artvoice_news %}
-            {% for value in artvoice_news %}
-                <div class="d-flex">
-                 <h5 class="card-title">
-                  <li><a href="{{ value.url }}" target="_blank" class="text-decoration-none text-dark">{{ value.title }}</a>
-                 </h5>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead">Something failed here last run.</p>
-        {% endif %}
-    </div>
-    <!-- ArtVoice -->
-
     <!-- Jamestown News -->
     <div class="container d-block pt-5">
       <h2><a href="https://www.post-journal.com/" target="_blank" class="text-decoration-none text-success">Jamestown Post-Journal</a>: </h2>
